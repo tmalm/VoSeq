@@ -1,6 +1,7 @@
-This it the NSG's butterfly database for private use. It is a different flavor of the public database found at http://nymphalidae.utu.fi/db.php
+This it VoSeq. VoSeq is a database to store voucher and sequence data. 
+Please send all bug complaints to Carlos Peña (mycalesis@gmail.com) or Tobias Malm (tobias.malm@uef.fi) 
 
-author: Carlos Peña mycalesis@gmail.com
+Please find the documentation here: http://nymphalidae.utu.fi/cpena/VoSeq_docu.html
 
-1. Rename the file conf.php.bak to conf.php
-2. Edit the file conf.php with any text editor and include the information required
+A test installation containing sample data is here: http://www.nymphalidae.net/VoSeq/
+
