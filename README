@@ -1,0 +1,6 @@
+This it the NSG's butterfly database for private use. It is a different flavor of the public database found at http://nymphalidae.utu.fi/db.php
+
+author: Carlos Peña mycalesis@gmail.com
+
+1. Rename the file conf.php.bak to conf.php
+2. Edit the file conf.php with any text editor and include the information required
