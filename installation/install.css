@@ -1,0 +1,330 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	color : #333;
+	background-color : #FFF;
+	font-size : 12px;
+	font-family : Arial, Helvetica, sans-serif;
+}
+
+.error {
+	position: absolute;
+	width: 100%;
+	height: 220px;
+	text-align: center;
+	top: 200px;
+	left: 0px;
+}
+
+#wrapper {
+        border: 0px;
+        margin: 0px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0px;
+}
+
+#header {
+        background-color: #FFF;
+        background-position: right top;
+        border-bottom: 4px solid #828ee8;
+        background: url(header_bg.png);
+}
+
+#myDatabase {
+        position: relative;
+        width: 100%;
+        background: url(header_version.png) no-repeat;
+        background-position: top right;
+        margin: 0px;
+        padding: 0px;
+}
+
+#stepbar {
+	background-color: #F1F1F1;
+	width: 170px !important;
+	width: 170px;
+	height: 400px;
+	font-size: 11px;
+	float: left;
+	text-align: left;
+}
+
+#step {
+	background: url(install_logo.png) no-repeat;
+	font-size: 30px;
+	font-weight: bold;
+	text-align: left;
+	color: #666666;
+	padding: 10px 0px 20px 80px;
+	white-space: nowrap;
+	position: relative;
+	float: left;
+}
+
+.step-on {
+	color: #fff;
+	background: #828ee8;
+	font-weight: bold;
+	font-size: 13px;
+	padding: 10px;
+	border: 1px solid #cccccc;
+	margin-bottom: 2px;
+}
+
+.step-off {
+  font-size: 13px;
+	color: #999999;
+	font-weight: bold;
+	padding: 10px;
+	border: 1px solid #cccccc;
+	margin-bottom: 2px;
+}
+
+#right {
+  float: right;
+  width: 555px !important;
+  width: 545px;
+  border-left: 1px solid #cccccc;
+  padding-left: 10px;
+
+}
+
+#break {
+	height: 20px;
+}
+
+.licensetext {
+  text-align: left;
+}
+
+.license {
+  padding: 0px;
+  width: 530px;
+  height: 300px;
+}
+
+.license-form {
+  float: left;
+}
+
+.install {
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 3em;
+	margin-bottom: 3em;
+	padding: 10px;
+	border: 1px solid #cccccc;
+	width: 750px;
+	background: #F1F1F1;
+}
+	
+h3 {
+	font-size: 14px;
+ 	text-align: left;
+ 	color: red;
+}
+
+.install h1 {
+	font-size: 15px;
+	font-weight: bold;
+ 	color: #828ee8;
+	padding: 10px 10px 4px 0px;
+ 	text-align: left;
+	border-bottom: 1px solid #828ee8;
+	margin-bottom: 10px;
+
+}
+
+.install-form {
+  position: relative;
+	text-align: left;
+	float: right;
+	width: 69%;
+}
+
+.install-text {
+  position: relative;
+	text-align: left;
+	width: 50%;
+	float: left;
+}
+
+.install-text2 {
+  position: relative;
+	text-align: left;
+	width: 90%;
+	float: left;
+}
+.form-block {
+	border: 1px solid #cccccc;
+	background: #E9ECEF;
+	padding-top: 5px;
+	padding-left: 5px;
+	padding-bottom: 5px;
+	padding-right: 5px;
+}
+
+.left {
+  position: relative;
+	text-align: left;
+	float: left;
+	width: 50%;
+}
+
+.right {
+  position: relative;
+	text-align: left;
+	float: right;
+	width: 50%;
+}
+
+.far-right {
+  position: relative;
+	text-align: right;
+	float: right;
+}
+
+.far-left {
+  position: relative; 
+	text-align: left;
+	float: left;
+}
+
+.clr {
+    clear:both;
+    }
+
+.ctr {
+	text-align: center;
+}
+
+.button {
+	border : solid 1px #cccccc;
+	background: #E9ECEF;
+	color : #666666;
+	font-weight : bold;
+	font-size : 11px;
+	padding: 4px;
+}
+
+table.content {
+	width: 100%;
+}
+
+table.content td {
+	color : #333333;
+	font-size: 12px;
+	width: 50%;
+}
+
+table.content2 {
+	width: 100%;
+}
+
+table.content2 td {
+	color : #333333;
+	font-size: 12px;
+}
+
+.toggle {
+	font-weight: bold;
+}
+
+
+/*  old stuff */
+
+
+a {
+	color: #C64934;
+	text-decoration: none;
+}
+a:hover {
+	color : #30569D;
+	text-decoration : underline;
+}
+a:active {
+	color : #FF9900;
+	text-decoration : underline;
+}
+
+.inputbox {
+
+	color: blue;
+	font-family: Arial, Helvetica, sans-serif;
+	z-index: -3;
+	font-size: 11px;
+}
+
+.small {
+	color : #333;
+	font-size : 10px;
+}
+
+.error {
+	color : #cc0000;
+	font-size : 12px;
+	font-weight : bold;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+
+select.options, input.options {
+	font-size: 8pt;
+	border: 1px solid #999;
+}
+
+form {
+	margin: 0px 0px 0px 0px;
+}
+
+
+.dottedline {
+	border-bottom: 1px solid #333;
+}
+
+.installheader {
+	color : #FFF;
+	font-size : 24px;
+}
+
+textarea {
+	color : #0000dd;
+	font-family : Arial;
+	font-size : 11px;
+	border: 1px;
+}
+
+/* tooltip styles */
+.mw-help-field-hint {
+	display: none;
+	padding: 0px;
+	padding-left: 15px;
+	margin-left: 2px;
+	margin-bottom: -8px;
+	/* @embed */
+	background-image: url('help-question.gif');
+	background-position: left center;
+	background-repeat: no-repeat;
+	color: #0645ad;
+	text-decoration: underline;
+	cursor: pointer;
+	font-size: .9em;
+}
+.mw-help-field-hint:hover {
+	background-image: url('help-question-hover.gif');
+}
+.mw-help-field-data {
+	display: block;
+	background-color: #d6f3ff;
+	padding:5px 8px 4px 8px;
+	border: 1px solid #5dc9f4;
+	margin-left: 20px;
+}
+
+.config-block-label label, .config-label {
+	font-weight: bold;
+	padding-right: .5em;
+	padding-top: .2em;
+}

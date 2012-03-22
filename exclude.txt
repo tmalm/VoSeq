@@ -1,0 +1,15 @@
+.*
+.htaccess
+conf.php
+conf.php~
+blast/bin/*
+includes/blasts/*
+myoutfile
+*sql
+*fa
+*fas
+*fst
+*csv
+*~
+*tnt
+result.txt
