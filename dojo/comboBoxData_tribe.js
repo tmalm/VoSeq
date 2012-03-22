@@ -1,4 +1,0 @@
-[
-	["Morphini"],
-	["Satyrini"],
-]

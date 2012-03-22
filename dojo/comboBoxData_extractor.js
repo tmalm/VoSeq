@@ -1,4 +1,0 @@
-[
-	["Carlos Pena"],
-	["Niklas Wahlberg"],
-]

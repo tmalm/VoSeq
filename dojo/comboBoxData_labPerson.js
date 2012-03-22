@@ -1,3 +1,0 @@
-[
-	["Carlos Pena"],
-]

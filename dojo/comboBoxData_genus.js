@@ -1,4 +1,0 @@
-[
-	["Harjesia"],
-	["Morpho"],
-]
