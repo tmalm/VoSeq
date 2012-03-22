@@ -160,7 +160,9 @@ if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
 
 		// make directory for story dojo_data for autocomplete dropboxes (combobox)
 		$dojo_data_folder = $variables['local_folder'] . "\\dojo_data";
-		mkdir($dojo_data_folder, 0777);
+		if( !file_exists($dojo_data_folder) ) {
+			mkdir($dojo_data_folder, 0777);
+		}
 	}
 	else {
 		$error[] = "I cannot create the file <code>conf.php</code> in your folder ". $variables['local_folder'] . ". Please set the needed permissions for your folder (write permissions by 'others'). And try again!";
@@ -174,12 +176,14 @@ else {
 		fclose($handle);
 
 		// chmod to 700 otherwise all php scripts will be terminated in some comercial servers
-		chmod('../conf.php', '0700');
+		chmod('../conf.php', 0700);
 		//chmod('conf.php', '0700');
 
 		// make directory for story dojo_data for autocomplete dropboxes (combobox)
 		$dojo_data_folder = $variables['local_folder'] . "/dojo_data";
-		mkdir($dojo_data_folder, 0777);
+		if( !file_exists($dojo_data_folder) ) {
+			mkdir($dojo_data_folder, 0777);
+		}
 	}
 	else {
 		$error[] = "I cannot create the file <code>conf.php</code> in your folder ". $variables['local_folder'] . ". Please set the needed permissions for your folder (write permissions by 'others'). And try again!";
@@ -263,9 +267,9 @@ mysql_query($query) or die("Error in query: $query. " . mysql_error());
 // check permisions for folders
 exec('chown www-data:www-data ' . $variables['local_folder']);
 exec('chmod 777 -R ' . $variables['local_folder']);
-if( substr(sprintf('%o', fileperms("../dojo")), -4) != "0777" ) {
-	$error[] = "Please change permisions for your folders and all its files. It is necessary 'write permissions' by User, Group and Others:<br /> <code>chmod -R 777 ". $variables['local_folder'] . "/</code>";
-}
+#if( substr(sprintf('%o', fileperms("../dojo")), -4) != "0777" ) {
+#	$error[] = "Please change permisions for your folders and all its files. It is necessary 'write permissions' by User, Group and Others:<br /> <code>chmod -R 777 ". $variables['local_folder'] . "/</code>";
+#}
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
