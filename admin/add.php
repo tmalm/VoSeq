@@ -165,26 +165,26 @@ if ($_GET['new']) {
 			<td class="label">Order</td>
 			<td class="field">
 				<select dojoType="ComboBox" value="nada"
-					dataUrl="../dojo/comboBoxData_orden.js" style="width: 90px;" name="orden" maxListLength="20">
+					dataUrl="../dojo_data/comboBoxData_orden.js" style="width: 90px;" name="orden" maxListLength="20">
 				</select></td>
 			<td width="20">&nbsp;</td>
 			<td class="label">Subfamily</td>
 			<td class="field">
 				<select dojoType="ComboBox" value="nada"
-					dataUrl="../dojo/comboBoxData_subfamily.js" style="width: 70px;" name="subfamily" maxListLength="20">
+					dataUrl="../dojo_data/comboBoxData_subfamily.js" style="width: 70px;" name="subfamily" maxListLength="20">
 				</select></td>
 		</tr>
 		<tr>
 			<td class="label">Family</td>
 			<td class="field">
 				<select dojoType="ComboBox" value="nada"
-					dataUrl="../dojo/comboBoxData_family.js" style="width: 90px;" name="family" maxListLength="20">
+					dataUrl="../dojo_data/comboBoxData_family.js" style="width: 90px;" name="family" maxListLength="20">
 				</select></td>
 			<td>&nbsp;</td>
 			<td class="label">Tribe</td>
 			<td class="field">
 				<select dojoType="ComboBox" value="nada"
-					dataUrl="../dojo/comboBoxData_tribe.js" style="width: 90px;" name="tribe" maxListLength="20">
+					dataUrl="../dojo_data/comboBoxData_tribe.js" style="width: 90px;" name="tribe" maxListLength="20">
 				</select>
 			</td>
 		</tr>
@@ -192,13 +192,13 @@ if ($_GET['new']) {
 			<td class="label">Genus</td>
 			<td class="field">
 				<select dojoType="ComboBox" value="nada"
-					dataUrl="../dojo/comboBoxData_genus.js" style="width: 90px;" name="genus" maxListLength="20">
+					dataUrl="../dojo_data/comboBoxData_genus.js" style="width: 90px;" name="genus" maxListLength="20">
 				</select></td>
 			<td>&nbsp;</td>
 			<td class="label">Subtribe</td>
 			<td class="field">
 				<select dojoType="ComboBox" value="nada"
-					dataUrl="../dojo/comboBoxData_subtribe.js" style="width: 70px;" name="subtribe" maxListLength="20">
+					dataUrl="../dojo_data/comboBoxData_subtribe.js" style="width: 70px;" name="subtribe" maxListLength="20">
 				</select>
 			</td>
 		</tr>
@@ -206,13 +206,13 @@ if ($_GET['new']) {
 			<td class="label">Species</td>
 			<td class="field">
 			<select dojoType="ComboBox" value="nada"
-					dataUrl="../dojo/comboBoxData_species.js" style="width: 90px;" name="species" maxListLength="20">
+					dataUrl="../dojo_data/comboBoxData_species.js" style="width: 90px;" name="species" maxListLength="20">
 				</select></td>
 			<td>&nbsp;</td>
 			<td class="label">Host org.</td>
 			<td class="field">
 				<select dojoType="ComboBox" value="nada"
-					dataUrl="../dojo/comboBoxData_hostorg.js" style="width: 70px;" name="hostorg" maxListLength="20">
+					dataUrl="../dojo_data/comboBoxData_hostorg.js" style="width: 70px;" name="hostorg" maxListLength="20">
 				</select>
 			</td>
 		</tr>
@@ -220,7 +220,7 @@ if ($_GET['new']) {
 			<td class="label">Subspecies</td>
 			<td class="field">
 				<select dojoType="ComboBox" value="nada"
-					dataUrl="../dojo/comboBoxData_subspecies.js" style="width: 90px;" name="subspecies" maxListLength="20">
+					dataUrl="../dojo_data/comboBoxData_subspecies.js" style="width: 90px;" name="subspecies" maxListLength="20">
 				</select>
 			</td>
 			<td>&nbsp;</td>
@@ -237,7 +237,7 @@ if ($_GET['new']) {
 		<tr><td colspan="3" class="label2">Country</td></tr>
 		<tr><td colspan="3" class="field">
 			  <select dojoType="ComboBox" value="nada"
-					dataUrl="../dojo/comboBoxData_country.js" style="width: 120px;" name="country" maxListLength="20">
+					dataUrl="../dojo_data/comboBoxData_country.js" style="width: 120px;" name="country" maxListLength="20">
 				</select>
 			 </td>
 		</tr>
@@ -274,7 +274,7 @@ if ($_GET['new']) {
 			</td>
 			<td class="field2">
 				<select dojoType="ComboBox" value="nada"
-					dataUrl="../dojo/comboBoxData_collector.js" style="width: 90px;" name="collector" maxListLength="20">
+					dataUrl="../dojo_data/comboBoxData_collector.js" style="width: 90px;" name="collector" maxListLength="20">
 				</select></td>
 			<td class="field2"><input size="12" maxlength="250" type="text" name="dateCollection" /></td>
 		</tr>
@@ -328,7 +328,7 @@ if ($_GET['new']) {
 		<tr>
 			<td colspan="2" class="field">
 				<select dojoType="ComboBox" value="nada"
-					dataUrl="../dojo/comboBoxData_extractor.js" style="width: 130px;" name="extractor" maxListLength="20">
+					dataUrl="../dojo_data/comboBoxData_extractor.js" style="width: 130px;" name="extractor" maxListLength="20">
 				</select>
 			</td>
 		</tr>

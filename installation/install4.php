@@ -157,6 +157,10 @@ if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
 	if(is_writable($filename)) {
 		fwrite($handle, $string);
 		fclose($handle);
+
+		// make directory for story dojo_data for autocomplete dropboxes (combobox)
+		$dojo_data_folder = $variables['local_folder'] . "\\dojo_data";
+		mkdir($dojo_data_folder, 0777);
 	}
 	else {
 		$error[] = "I cannot create the file <code>conf.php</code> in your folder ". $variables['local_folder'] . ". Please set the needed permissions for your folder (write permissions by 'others'). And try again!";
@@ -172,6 +176,10 @@ else {
 		// chmod to 700 otherwise all php scripts will be terminated in some comercial servers
 		chmod('../conf.php', '0700');
 		//chmod('conf.php', '0700');
+
+		// make directory for story dojo_data for autocomplete dropboxes (combobox)
+		$dojo_data_folder = $variables['local_folder'] . "/dojo_data";
+		mkdir($dojo_data_folder, 0777);
 	}
 	else {
 		$error[] = "I cannot create the file <code>conf.php</code> in your folder ". $variables['local_folder'] . ". Please set the needed permissions for your folder (write permissions by 'others'). And try again!";
@@ -279,7 +287,13 @@ if( substr(sprintf('%o', fileperms("../dojo")), -4) != "0777" ) {
 	</div>
 </div>
 <div id="ctr" align="center">
-	<form action="install5.php" method="post" name="form" id="form" onsubmit="return check();">
+	<?php
+	// if error, try again, so try this same file
+	if( !isset($error) ) {
+		echo "<form action=\"install5.php\" method=\"post\" name=\"form\" id=\"form\" onsubmit=\"return check();\">";
+	}
+
+	?>
 	<div class="install">
 		<div id="stepbar">
 			<div class="step-off">
@@ -303,7 +317,11 @@ if( substr(sprintf('%o', fileperms("../dojo")), -4) != "0777" ) {
 		</div>
 		<div id="right">
 			<div class="far-right">
-					<input class="button" type="submit" name="next" value="Next >>" />
+				<?php
+					if( !isset($error) ) {
+						echo "<input class='button' type='submit' name='next' value='Next >>' />";
+					}
+				?>
   			</div>
 	  		<div id="step">
 
@@ -319,6 +337,9 @@ if( substr(sprintf('%o', fileperms("../dojo")), -4) != "0777" ) {
 						}
 						echo "</ul>";
 					}
+					echo "After setting the right permissions for the folder go back to resume the installation process
+							<form><input type='button' value='Go back' onclick='history.go(-1)'></form>
+							<br />";
 				}
 			?>
 	  		<div class="install-text">
@@ -345,8 +366,11 @@ if( substr(sprintf('%o', fileperms("../dojo")), -4) != "0777" ) {
 	<?php
 		echo "<input type=\"hidden\" name=\"url\" value=\"". $variables['url']. "\" />\n";
 		echo "<input type=\"hidden\" name=\"local_folder\" value=\"". $variables['local_folder']. "\" />\n";
+
+		if( !isset($error) ) {
+			echo "</form>";
+		}
 	?>	
-	</form>
 </div>
 <div class="clr"></div>
 <div class="ctr">

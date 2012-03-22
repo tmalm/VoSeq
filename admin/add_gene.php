@@ -154,7 +154,7 @@ if ($_GET['new'])
 			<td class="label">Gene code</td>
 			<td class="field">
 				<select dojoType="ComboBox" value="nada"
-					dataUrl="../dojo/comboBoxData_geneCode.js" style="width: 90px;" name="geneCode" maxListLength="20">
+					dataUrl="../dojo_data/comboBoxData_geneCode.js" style="width: 90px;" name="geneCode" maxListLength="20">
 				</select></td>
 			<td class="label3">Length</td>
 			<td class="field2">

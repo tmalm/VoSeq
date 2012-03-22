@@ -126,14 +126,14 @@ if( $_GET['code'] && !isset($_GET['geneCode']) ) {
 		<tr><td class="label">Lab Person</td>
 			 <td class="field">
 			 	<select dojoType="ComboBox" value="nada"
-					dataUrl="../dojo/comboBoxData_labPerson.js" style="width: 94px;" name="labPerson"
+					dataUrl="../dojo_data/comboBoxData_labPerson.js" style="width: 94px;" name="labPerson"
 					maxListLength="15">
 				</select></td>
 		</tr>
 		<tr><td class="label">Gene Code</td>
 			 <td class="field3">
 				<select dojoType="ComboBox" value="nada"
-					dataUrl="../dojo/comboBoxData_geneCode.js" style="width: 94px;" name="geneCode" maxListLength="15">
+					dataUrl="../dojo_data/comboBoxData_geneCode.js" style="width: 94px;" name="geneCode" maxListLength="15">
 				</select></td>
 		</tr>
 		<tr><td class="label">Accession</td>
@@ -157,32 +157,32 @@ if( $_GET['code'] && !isset($_GET['geneCode']) ) {
 		<tr><td class="label2">Up to 6 primers</td></tr>
 		<tr>
 			<td class="field"><select dojoType="ComboBox" value="nada"
-					dataUrl="../dojo/comboBoxData_primer1.js" style="width: 94px;" name="primer1" maxListLength="15">
+					dataUrl="../dojo_data/comboBoxData_primer1.js" style="width: 94px;" name="primer1" maxListLength="15">
 				</select></td>
 		</tr>
 		<tr>
 			<td class="field"><select dojoType="ComboBox" value="nada"
-					dataUrl="../dojo/comboBoxData_primer2.js" style="width: 94px;" name="primer2" maxListLength="15">
+					dataUrl="../dojo_data/comboBoxData_primer2.js" style="width: 94px;" name="primer2" maxListLength="15">
 				</select></td>
 		</tr>
 		<tr>
 			<td class="field"><select dojoType="ComboBox" value="nada"
-					dataUrl="../dojo/comboBoxData_primer3.js" style="width: 94px;" name="primer3" maxListLength="15">
+					dataUrl="../dojo_data/comboBoxData_primer3.js" style="width: 94px;" name="primer3" maxListLength="15">
 				</select></td>
 		</tr>
 		<tr>
 			<td class="field"><select dojoType="ComboBox" value="nada"
-					dataUrl="../dojo/comboBoxData_primer4.js" style="width: 94px;" name="primer4" maxListLength="15">
+					dataUrl="../dojo_data/comboBoxData_primer4.js" style="width: 94px;" name="primer4" maxListLength="15">
 				</select></td>
 		</tr>
 		<tr>
 			<td class="field"><select dojoType="ComboBox" value="nada"
-					dataUrl="../dojo/comboBoxData_primer5.js" style="width: 94px;" name="primer5" maxListLength="15">
+					dataUrl="../dojo_data/comboBoxData_primer5.js" style="width: 94px;" name="primer5" maxListLength="15">
 				</select></td>
 		</tr>
 		<tr>
 			<td class="field"><select dojoType="ComboBox" value="nada"
-					dataUrl="../dojo/comboBoxData_primer6.js" style="width: 94px;" name="primer6" maxListLength="15">
+					dataUrl="../dojo_data/comboBoxData_primer6.js" style="width: 94px;" name="primer6" maxListLength="15">
 				</select></td>
 		</tr>
 		<tr>

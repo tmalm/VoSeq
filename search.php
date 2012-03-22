@@ -607,58 +607,58 @@ else // empty POST, user has not entered query yet
 					<td class="label">Order</td>
 			<td class="field">
 				<input dojoType="ComboBox" value="nada" autocomplete="false"
-					dataUrl="dojo/comboBoxData_orden.js" style="width: 90px;" name="orden" maxListLength="20" />
+					dataUrl="dojo_data/comboBoxData_orden.js" style="width: 90px;" name="orden" maxListLength="20" />
 			</td>
 			<!-- <td>&nbsp;</td> -->
 			<td class="label3">Subfamily</td>
 			<td class="field2">
 				<input dojoType="ComboBox" value="nada" autocomplete="false"
-					dataUrl="dojo/comboBoxData_subfamily.js"  style="width: 90px;" name="subfamily" maxListLength="20" />
+					dataUrl="dojo_data/comboBoxData_subfamily.js"  style="width: 90px;" name="subfamily" maxListLength="20" />
 			</td>
 		</tr>
 		<tr>
 						<td class="label">Family</td>
 			<td class="field">
 				<input dojoType="ComboBox" value="nada" autocomplete="false"
-					dataUrl="dojo/comboBoxData_family.js" style="width: 90px;" name="family" maxListLength="20" />
+					dataUrl="dojo_data/comboBoxData_family.js" style="width: 90px;" name="family" maxListLength="20" />
 			</td>
 			<!-- <td>&nbsp;</td> -->
 			<td class="label3">Tribe</td>
 			<td class="field2">
 				<input dojoType="ComboBox" value="nada" autocomplete="false"
-					dataUrl="dojo/comboBoxData_tribe.js" style="width: 90px;" name="tribe" maxListLength="20" />
+					dataUrl="dojo_data/comboBoxData_tribe.js" style="width: 90px;" name="tribe" maxListLength="20" />
 			</td>
 		</tr>
 		<tr>
 			<td class="label">Genus</td>
 			<td class="field">
 				<input dojoType="ComboBox" value="nada" autocomplete="false"
-					dataUrl="dojo/comboBoxData_genus.js" style="width: 90px;" name="genus" maxListLength="20" />
+					dataUrl="dojo_data/comboBoxData_genus.js" style="width: 90px;" name="genus" maxListLength="20" />
 			</td>
 			<!-- <td>&nbsp;</td> -->
 			<td class="label3">Subtribe</td>
 			<td class="field2">
 				<input dojoType="ComboBox" value="nada" autocomplete="false"
-					dataUrl="dojo/comboBoxData_subtribe.js" style="width: 90px;" name="subtribe" maxListLength="20" />
+					dataUrl="dojo_data/comboBoxData_subtribe.js" style="width: 90px;" name="subtribe" maxListLength="20" />
 			</td>
 		</tr>
 		<tr>
 			<td class="label">Species</td>
 			<td class="field">
 				<input dojoType="ComboBox" value="nada" autocomplete="false"
-					dataUrl="dojo/comboBoxData_species.js" style="width: 90px;" name="species" maxListLength="20" />
+					dataUrl="dojo_data/comboBoxData_species.js" style="width: 90px;" name="species" maxListLength="20" />
 			</td>
 			<!-- <td>&nbsp;</td> -->
 			<td class="label3">Host org.</td>
 			<td class="field2">
 				<input dojoType="ComboBox" value="nada" autocomplete="false"
-					dataUrl="dojo/comboBoxData_hostorg.js" style="width: 90px;" name="hostorg" maxListLength="20" />
+					dataUrl="dojo_data/comboBoxData_hostorg.js" style="width: 90px;" name="hostorg" maxListLength="20" />
 			</td>
 		<tr>
 			<td class="label">Subspecies</td>
 			<td class="field">
 				<input dojoType="ComboBox" value="nada" autocomplete="false"
-					dataUrl="dojo/comboBoxData_subspecies.js" style="width: 90px;" name="subspecies" maxListLength="20" />
+					dataUrl="dojo_data/comboBoxData_subspecies.js" style="width: 90px;" name="subspecies" maxListLength="20" />
 			</td>
 			<!-- <td>&nbsp;</td> -->
 			<td rowspan="1" class="label3" style="font-size:8px;">Type species</td>
@@ -675,7 +675,7 @@ else // empty POST, user has not entered query yet
 		<tr><td colspan="3" class="label2">Country</td></tr>
 		<tr><td colspan="3" class="field">
 				<input dojoType="ComboBox" value="nada" autocomplete="false"
-					dataUrl="dojo/comboBoxData_country.js" style="width: 120px;" name="country" maxListLength="20" />
+					dataUrl="dojo_data/comboBoxData_country.js" style="width: 120px;" name="country" maxListLength="20" />
 			 </td>
 		</tr>
 		
@@ -703,11 +703,11 @@ else // empty POST, user has not entered query yet
 		<tr>
 			<td class="field3">
 				<input dojoType="ComboBox" value="nada" autocomplete="false"
-					dataUrl="dojo/comboBoxData_code.js" style="width: 90px;" name="code" maxListLength="20" />
+					dataUrl="dojo_data/comboBoxData_code.js" style="width: 90px;" name="code" maxListLength="20" />
 			</td>
 			<td class="field2">
 				<input dojoType="ComboBox" value="nada" autocomplete="false"
-					dataUrl="dojo/comboBoxData_collector.js" style="width: 90px;" name="collector" maxListLength="20" />
+					dataUrl="dojo_data/comboBoxData_collector.js" style="width: 90px;" name="collector" maxListLength="20" />
 			</td>
 			<td class="field2"><input type="text" name="dateCollection" size="10" /></td>
 		</tr>
@@ -761,7 +761,7 @@ else // empty POST, user has not entered query yet
 		<tr>
 			<td colspan="2" class="field">
 				<input dojoType="ComboBox" value="nada" autocomplete="false"
-					dataUrl="dojo/comboBoxData_extractor.js" style="width: 130px;" name="extractor" maxListLength="20" />
+					dataUrl="dojo_data/comboBoxData_extractor.js" style="width: 130px;" name="extractor" maxListLength="20" />
 			</td>
 		</tr>
 		<tr>
@@ -784,7 +784,7 @@ else // empty POST, user has not entered query yet
 			<td class="label">Gene Code</td>
 			<td class="field">
 				<input dojoType="ComboBox" value="nada" autocomplete="false"
-					dataUrl="dojo/comboBoxData_geneCode.js" style="width: 90px;" name="geneCode" maxListLength="20" />
+					dataUrl="dojo_data/comboBoxData_geneCode.js" style="width: 90px;" name="geneCode" maxListLength="20" />
 			</td>
 		</tr>
 		<tr>
@@ -797,7 +797,7 @@ else // empty POST, user has not entered query yet
 			<td class="label">Accession</td>
 			<td class="field">
 				<input dojoType="ComboBox" value="nada" autocomplete="false"
-					dataUrl="dojo/comboBoxData_accession.js" style="width: 90px;" name="accession" maxListLength="20" />
+					dataUrl="dojo_data/comboBoxData_accession.js" style="width: 90px;" name="accession" maxListLength="20" />
 			</td>
 		</tr>
 	</table>

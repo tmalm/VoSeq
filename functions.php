@@ -299,7 +299,7 @@ function update_comboboxes() {
     	$query = "SELECT DISTINCT $value FROM " . $p_ . "vouchers ORDER BY $value ASC";
 		$result = mysql_query($query) or die("Error in query: $query. " . mysql_error());
 		
-		$comboFile = $local_folder . '/dojo/comboBoxData_' . $value . '.js';
+		$comboFile = $local_folder . '/dojo_data/comboBoxData_' . $value . '.js';
     	if ( file_exists($comboFile) ) {
     		unlink($comboFile);
 		}
@@ -324,7 +324,7 @@ function update_comboboxes() {
 		$query = "SELECT DISTINCT $value FROM " . $p_ . "sequences ORDER BY $value ASC";
     	$result = mysql_query($query) or die("Error in query: $query. " . mysql_error());
 		
-		$comboFile = $local_folder . '/dojo/comboBoxData_' . $value . '.js';
+		$comboFile = $local_folder . '/dojo_data/comboBoxData_' . $value . '.js';
 		if ( file_exists($comboFile) ) {
 			unlink($comboFile);
     	}
@@ -349,7 +349,7 @@ function update_comboboxes() {
 		$query = "SELECT DISTINCT $value FROM ". $p_ . "primers ORDER BY $value ASC";
     	$result = mysql_query($query) or die("Error in query: $query. " . mysql_error());
 		
-		$comboFile = $local_folder . '/dojo/comboBoxData_' . $value . '.js';
+		$comboFile = $local_folder . '/dojo_data/comboBoxData_' . $value . '.js';
 		if ( file_exists($comboFile) ) {
 			unlink($comboFile);
     	}

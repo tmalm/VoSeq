@@ -4,6 +4,7 @@ conf.php
 conf.php~
 blast/bin/*
 includes/blasts/*
+dojo_data
 myoutfile
 *sql
 *fa
