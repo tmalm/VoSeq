@@ -2,6 +2,8 @@ VoSeq: a database to store voucher and sequence data
 
 Changelog:
 *Version 1.2.1
+20120322
+		- (CP) Fixing installation issues. Had to create folder dojo_data for autocomplete boxes.
 20120319
 		- (TM) Fixes of BLAST scripts to run in Windows.
 		- (TM) Improving creating datasets, and aminoacids option.
