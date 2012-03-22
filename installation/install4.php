@@ -267,9 +267,9 @@ mysql_query($query) or die("Error in query: $query. " . mysql_error());
 // check permisions for folders
 exec('chown www-data:www-data ' . $variables['local_folder']);
 exec('chmod 777 -R ' . $variables['local_folder']);
-#if( substr(sprintf('%o', fileperms("../dojo")), -4) != "0777" ) {
-#	$error[] = "Please change permisions for your folders and all its files. It is necessary 'write permissions' by User, Group and Others:<br /> <code>chmod -R 777 ". $variables['local_folder'] . "/</code>";
-#}
+if( substr(sprintf('%o', fileperms("../dojo")), -4) != "0777" ) {
+	$error[] = "Please change permisions for your folders and all its files. It is necessary 'write permissions' by User, Group and Others:<br /> <code>chmod -R 777 ". $variables['local_folder'] . "/</code>";
+}
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
