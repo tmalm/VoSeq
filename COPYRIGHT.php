@@ -1,13 +1,13 @@
 <?php
 /**
-    package: NSGbase, a web database for biological museum specimens.
-    Copyright (C) 2007 Carlos Pena
+    package: VoSeq, web application store voucher and sequence data.
+    Copyleft (C) 2012 Carlos Peña, Tobias Malm
     eMail: mycalesis@yahoo.com
     License http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
 
-    This file is part of NSGbase.
+    This file is part of VoSeq
 
-    NSGbase is free software; you can redistribute it and/or modify
+    VoSeq is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation; either version 2 of the License, or
     (at your option) any later version.
