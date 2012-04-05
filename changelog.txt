@@ -2,6 +2,8 @@ VoSeq: a database to store voucher and sequence data
 
 Changelog:
 *Version 1.2.1
+20120405
+		- (CP) admin/add.php file now has mysql_real_escape_string() too all variables before inserting or updating to MySQL tables.
 20120322
 		- (CP) Fixing installation issues. Had to create folder dojo_data for autocomplete boxes.
 20120319

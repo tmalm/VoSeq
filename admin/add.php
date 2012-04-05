@@ -509,6 +509,38 @@ elseif ($_POST['submitNew']) {
 			$rowtime    = mysql_result($resulttime,0);
 			$editsadd = $editsadd . $rowtime;
 			$editsadd = $editsadd; 
+
+			// avoid SQL injection
+			$code = mysql_real_escape_string($code);
+			$extractor = mysql_real_escape_string($extractor);
+			$genus = mysql_real_escape_string($genus);
+			$orden = mysql_real_escape_string($orden);
+			$family = mysql_real_escape_string($family);
+			$subfamily = mysql_real_escape_string($subfamily);
+			$tribe = mysql_real_escape_string($tribe);
+			$subtribe = mysql_real_escape_string($subtribe);
+			$species = mysql_real_escape_string($species);
+			$subspecies = mysql_real_escape_string($subspecies);
+			$typeSpecies = mysql_real_escape_string($typeSpecies);
+			$country = mysql_real_escape_string($country);
+			$specificLocality = mysql_real_escape_string($specificLocality);
+			$altitude = mysql_real_escape_string($altitude);
+			$collector = mysql_real_escape_string($collector);
+			$dateCollection = mysql_real_escape_string($dateCollection);
+			$voucherLocality = mysql_real_escape_string($voucherLocality);
+			$voucher = mysql_real_escape_string($voucher);
+			$sex = mysql_real_escape_string($sex);
+			$hostorg = mysql_real_escape_string($hostorg);
+			$voucherCode = mysql_real_escape_string($voucherCode);
+			$extraction = mysql_real_escape_string($extraction);
+			$extractionTube = mysql_real_escape_string($extractionTube);
+			$dateExtraction = mysql_real_escape_string($dateExtraction);
+			$publishedIn = mysql_real_escape_string($publishedIn);
+			$notes = mysql_real_escape_string($notes);
+			$latitude = mysql_real_escape_string($latitude);
+			$longitude = mysql_real_escape_string($longitude);
+			$editsadd = mysql_real_escape_string($editsadd);
+			$latesteditor = mysql_real_escape_string($latesteditor);
 			
 			// generate and execute query
 			$query = "INSERT INTO ". $p_ . "vouchers(code, extractor, genus, orden, family, subfamily, tribe, subtribe, species, subspecies, typeSpecies, country, specificLocality, altitude, collector, dateCollection, voucherLocality, voucher, sex, hostorg, voucherCode, extraction, extractionTube,  dateExtraction, publishedIn, notes, ";
@@ -1061,6 +1093,39 @@ elseif ($_POST['submitNoNew'])
 									else { $editsed = $rowed ; }
 								}
 		if ($edcount != '0') {
+
+		// avoid SQL injection
+		$code1 = mysql_real_escape_string($code1);
+		$extractor = mysql_real_escape_string($extractor);
+		$genus = mysql_real_escape_string($genus);
+		$orden = mysql_real_escape_string($orden);
+		$family = mysql_real_escape_string($family);
+		$subfamily = mysql_real_escape_string($subfamily);
+		$tribe = mysql_real_escape_string($tribe);
+		$subtribe = mysql_real_escape_string($subtribe);
+		$species = mysql_real_escape_string($species);
+		$subspecies = mysql_real_escape_string($subspecies);
+		$typeSpecies = mysql_real_escape_string($typeSpecies);
+		$country = mysql_real_escape_string($country);
+		$latitude = mysql_real_escape_string($latitude);
+		$longitude = mysql_real_escape_string($longitude);
+		$altitude = mysql_real_escape_string($altitude);
+		$collector = mysql_real_escape_string($collector);
+		$dateCollection = mysql_real_escape_string($dateCollection);
+		$voucherLocality = mysql_real_escape_string($voucherLocality);
+		$voucher = mysql_real_escape_string($voucher);
+		$sex = mysql_real_escape_string($sex);
+		$hostorg = mysql_real_escape_string($hostorg);
+		$voucherCode = mysql_real_escape_string($voucherCode);
+		$extraction = mysql_real_escape_string($extraction);
+		$extractionTube = mysql_real_escape_string($extractionTube);
+		$dateExtraction = mysql_real_escape_string($dateExtraction);
+		$publishedIn = mysql_real_escape_string($publishedIn);
+		$notes = mysql_real_escape_string($notes);
+		$editsed = mysql_real_escape_string($editsed);
+		$latesteditor = mysql_real_escape_string($latesteditor);
+		$id1 = mysql_real_escape_string($id1);
+
 		// generate and execute query UPDATE
 		$query = "UPDATE ". $p_ . "vouchers SET code='$code1', extractor='$extractor', genus='$genus', orden='$orden',family='$family', subfamily='$subfamily', tribe='$tribe', subtribe='$subtribe', species='$species', subspecies='$subspecies', typeSpecies='$typeSpecies', country='$country', specificLocality='$specificLocality', ";
 		if ($latitude == NULL) {
