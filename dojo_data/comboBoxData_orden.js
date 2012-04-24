@@ -1,4 +1,0 @@
-[
-	["Lepidoptera"],
-	["Trichoptera"],
-]
