@@ -1,0 +1,20 @@
+# Disable directory browsing
+DirectoryIndex index.php
+Options All -Indexes
+
+# Leverage browser caching
+<filesMatch "\.(ico|png|jpg|jpeg|gif)$">
+Header set Expires "Mon, 31 Dec 2012 20:00:00 GMT"
+Header set Last-Modified "Fri, 15 Feb 2012 20:00:00 GMT"
+</filesMatch>
+
+<filesMatch "\.(css)$">
+Header set Expires "Mon, 30 Apr 2012 20:00:00 GMT"
+Header set Last-Modified "Fri, 15 Feb 2012 20:00:00 GMT"
+</filesMatch>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(js|css|xml|gz)$">
+    Header append Vary Accept-Encoding
+  </FilesMatch>
+</IfModule>

@@ -155,6 +155,7 @@ foreach($genes as $geneCode) {
 	}
 	foreach($lines as $code) {
 		$query = "SELECT " . $p_ . "vouchers.orden, 
+						 " . $p_ . "vouchers.code,
 						 " . $p_ . "vouchers.family, 
 						 " . $p_ . "vouchers.subfamily, 
 						 " . $p_ . "vouchers.tribe, 
@@ -189,7 +190,7 @@ foreach($genes as $geneCode) {
 				}
 				$lineage .= " $row->genus] ";
 				$species = str_replace(" ", "_", $row->species);
-				$output .= ">" . $row->genus . "_" . $species . "_" . $code . " [org=$row->genus $row->species] [Specimen-voucher=$code]";
+				$output .= ">" . $row->genus . "_" . $species . "_" . $row->code . " [org=$row->genus $row->species] [Specimen-voucher=$row->code]";
 				$output .= " [note=" . $row->description . " gene, partial cds.] $lineage";
 				$output .= "\n$row->sequences\n";
 			}

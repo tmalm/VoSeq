@@ -789,7 +789,9 @@ elseif (!$_POST['submitNoNew'] && $_GET['code']) {
 									<td class="label3">Date (yyyy-mm-dd)</td>
 								</tr>
 								<tr>
-									<td class="field3"><input size="12" maxlength="250" type="text" name="code" value="<?php echo $row1->code; ?>" /></td>
+									<td class="field3"><input size="12" maxlength="250" type="text" name="code" value="<?php echo $row1->code; ?>" />
+														<input type="hidden" name="old_code" value="<?php echo $row1->code; ?>" />
+									</td>
 									<td class="field2"><input size="12" maxlength="250" type="text" name="collector" value="<?php echo $row1->collector; ?>" /></td>
 									<td class="field2"><input size="12" maxlength="250" type="text" name="dateCollection" value="<?php echo $row1->dateCollection; ?>" /></td>
 								</tr>
@@ -950,6 +952,7 @@ elseif ($_POST['submitNoNew'])
 
 	$id1       = $_POST['id'];
 	$code1     = $_POST['code'];
+	$old_code  = $_POST['old_code'];
 	$extractor = $_POST['extractor'];
 	$genus     = $_POST['genus'];
 	$orden            = $_POST['orden'];
@@ -1144,6 +1147,16 @@ elseif ($_POST['submitNoNew'])
 		$query .= "altitude='$altitude', collector='$collector', dateCollection='$dateCollection', voucherLocality='$voucherLocality', voucher='$voucher', sex='$sex', hostorg='$hostorg', voucherCode='$voucherCode', extraction='$extraction', extractionTube='$extractionTube',  dateExtraction='$dateExtraction', publishedIn='$publishedIn', notes='$notes', timestamp=NOW(), edits='$editsed', latesteditor='$latesteditor' WHERE id='$id1'";
 
 		$result = mysql_query($query) or die ("Error in query: $query. " . mysql_error());
+
+
+		// update sequences table and primer tables
+		if( $old_code != $code1 ) {
+			$query = "UPDATE sequences set code='$code1' WHERE code='$old_code'";
+			$result = mysql_query($query) or die ("Error in query: $query. " . mysql_error());
+
+			$query = "UPDATE primers set code='$code1' WHERE code='$old_code'";
+			$result = mysql_query($query) or die ("Error in query: $query. " . mysql_error());
+		}
 		
 		// get title
 		$title = "$config_sitename - Record " . $code1 . " updated";

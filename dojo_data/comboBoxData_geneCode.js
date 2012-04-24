@@ -1,0 +1,14 @@
+[
+	["CAD"],
+	["COI-begin"],
+	["COI-end"],
+	["EF1a-begin"],
+	["EF1a-center"],
+	["EF1a-end"],
+	["GAPDH"],
+	["IDH"],
+	["MDH"],
+	["RpS5"],
+	["Wgl_nogap"],
+	["wingless"],
+]

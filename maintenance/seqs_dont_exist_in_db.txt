@@ -1,0 +1,74 @@
+
+Not in db: an_f_be_2, COI
+
+Not in db: br_mon, COI
+
+Not in db: br_pa_tn_2, COI
+
+Not in db: br_sp_tw_1, COI
+
+Not in db: br_st_ls_1, COI
+
+Not in db: brh, COI
+
+Not in db: ch_amm_tw_1, COI
+
+Not in db: ch_ba_tw_2, COI
+
+Not in db: ch_hy_tw_2, COI
+
+Not in db: ch_oph_tw_2, COI
+
+Not in db: ch_xa_tw_1, COI
+
+Not in db: chnemhr1, COI
+
+Not in db: chnemhr1, EF1a
+
+Not in db: chp, COI
+
+Not in db: en_co_ls_1, COI
+
+Not in db: gau_ls_1, RpS5
+
+Not in db: ge_wa_1, CAD
+
+Not in db: h_di_fl_4, COI
+
+Not in db: h_hou_car_2, COI
+
+Not in db: h_imm_ls_1, COI
+
+Not in db: h_lac_ls_3, COI
+
+Not in db: h_sil_i, COI
+
+Not in db: h_wgn_ls_2, COI
+
+Not in db: he_al_pa, COI
+
+Not in db: he_al_pa, EF1a
+
+Not in db: Hefel_3216649, COI
+
+Not in db: HeJR5_3215754, COI
+
+Not in db: hexut_3216631, COI
+
+Not in db: Prinf_HLC697, COI
+
+Not in db: r_gau_ls_1, COI
+
+Not in db: sa_ber_tw_1, COI
+
+Not in db: sa_div_tw_1, COI
+
+Not in db: t_spct_ls_3, COI
+
+Not in db: te_ge_wa_1, COI
+
+Not in db: te_gn_st_1, COI
+
+Not in db: to_cup, COI
+
+Not in db: z_sci_ls_1, COI

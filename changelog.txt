@@ -2,6 +2,9 @@ VoSeq: a database to store voucher and sequence data
 
 Changelog:
 *Version 1.2.1
+20120424
+		- (TM, CP) creating genbank fasta file keeps codes in the original case.
+			   When code is updated or changed for a record, it is also updated for sequences and primers tables.
 20120405
 		- (CP) admin/add.php file now has mysql_real_escape_string() too all variables before inserting or updating to MySQL tables.
 20120322
