@@ -1,7 +1,9 @@
 VoSeq: a database to store voucher and sequence data    
 
 Changelog:
-*Version 1.2.1
+*Version 1.2.2
+20120426
+		- (CP) installation script: entering table prefix for MySQL is not mandatory now.
 20120424
 		- (TM, CP) creating genbank fasta file keeps codes in the original case.
 			   When code is updated or changed for a record, it is also updated for sequences and primers tables.

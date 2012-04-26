@@ -62,7 +62,6 @@ function docheck() {
 		 $checksiteName == "" ||
 		 $checkdatabase_host == "" || 
 		 $checkdatabase_name == "" ||
-		 $checkdatabase_prefix == "" ||
 		 $checkdatabase_username == "" ||
 		 $checkdatabase_password == "" ||
 		 $checkadmin_name == "" ||

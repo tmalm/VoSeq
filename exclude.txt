@@ -6,7 +6,7 @@ blast/bin/blastdb_aliastool
 blast/bin/blastn
 blast/bin/makeblastdb
 blast/bin/makembindex
-dojo_data
+dojo_data/*js
 myoutfile
 *sql
 *fa

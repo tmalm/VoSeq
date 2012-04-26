@@ -2,6 +2,8 @@
 // include
 require_once ('functions.php');
 
+#print_r($_POST);exit(0);
+
 function docheck() {
 	$check_url = getParam( $_POST, 'url', '');
 
@@ -34,7 +36,6 @@ function docheck() {
 	if ( $checksiteName == "" ||
 		 $checkdatabase_host == "" || 
 		 $checkdatabase_name == "" ||
-		 $checkdatabase_prefix == "" ||
 		 $checkdatabase_username == "" ||
 		 $checkdatabase_password == "" ) {
 		echo "<html><head><title>Error</title><link rel=\"stylesheet\" href=\"install.css\" type=\"text/css\" /></head><body><div class=\"error\"><h2><img src=\"warning.png\" alt=\"\" />You entered invalid or empty details, please try again</h2></div></body></html>";
