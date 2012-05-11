@@ -570,18 +570,19 @@ if(   (!$new_POST['orden']  || trim($new_POST['orden'])     == '') &&
 	}
 else // empty POST, user has not entered query yet
 {
-		//clear old searches - to save data space
-			// open database connection
-			@$connection = mysql_connect($host, $user, $pass) or die ('Unable to connect!');
-			//select database
-			mysql_select_db($db) or die ('Unable to content');
-			if( function_exists(mysql_set_charset) ) {
-				mysql_set_charset("utf8");
-			}
-			$querydel = "TRUNCATE TABLE ". $p_ . "search";
-			$result = mysql_query($querydel) or die ("Error in query: $querydel. " . mysql_error());
-			$querydel = "TRUNCATE TABLE ". $p_ . "search_results";
-			$result = mysql_query($querydel) or die ("Error in query: $querydel. " . mysql_error());
+	//clear old searches - to save data space
+	// open database connection
+	@$connection = mysql_connect($host, $user, $pass) or die ('Unable to connect!');
+	//select database
+	mysql_select_db($db) or die ('Unable to content');
+	if( function_exists(mysql_set_charset) ) {
+		mysql_set_charset("utf8");
+	}
+	$querydel = "TRUNCATE TABLE ". $p_ . "search";
+	$result = mysql_query($querydel) or die ("Error in query: $querydel. " . mysql_error());
+	$querydel = "TRUNCATE TABLE ". $p_ . "search_results";
+	$result = mysql_query($querydel) or die ("Error in query: $querydel. " . mysql_error());
+
 	// need dojo?
 	$dojo = true;
 	// which dojo?
@@ -595,6 +596,9 @@ else // empty POST, user has not entered query yet
 			<tr><td valign=\"top\">";
 	?>
 	<!-- 	search boxes and options -->
+	<!-- help -->
+	<b>Query by single field or any combination of fields. <a href="http://nymphalidae.utu.fi/cpena/VoSeq_docu.html#Search" title="http://nymphalidae.utu.fi/cpena/VoSeq_docu.html#Search">See more help.</a></b>
+
 <form action="search.php" method="post">
 <table width="800" border="0"> <!-- big parent table -->
 <tr><td>

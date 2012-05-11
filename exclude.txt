@@ -1,4 +1,4 @@
-.*
+.*swp
 .htaccess
 conf.php
 conf.php~
@@ -16,3 +16,4 @@ myoutfile
 *~
 *tnt
 result.txt
+maintenance/*txt

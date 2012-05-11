@@ -319,7 +319,7 @@ else { //if special mode or Amino acid mode is not enabled, checking and buildin
 	if (isset($raw_codes)){
 	$raw_codes = array_unique($raw_codes); 
 	foreach($raw_codes AS $item) {
-		if ($item != "") {
+		if ( clean_item($item) != "") {
 			$item = clean_item($item);
 			$item = trim($item);
 			if (strpos($item, "--") === 0) {$item = str_replace("--","",$item);}

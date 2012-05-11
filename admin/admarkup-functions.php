@@ -51,8 +51,8 @@ echo "<!--standard page header begins-->
 	   	" . $intro_msg. "
 			
 			<p class=\"introduction_admin\">
-			<b>1.</b> This is the <b>administrator</b> interface of this database, which means you can add, update and delete records.<br />
-			<b>2.</b> If you are looking for sequences and want to use the database as <i>mortal user</i> click the <b>\"home\"</b></p>
+			<b>1.</b> This is the <b>administrator</b> interface of this database, which means you can add, update records, and delete sequences.<br />
+			<b>2.</b> If you are looking for sequences and want to use the database as <i>mortal user</i> click the <b>\"HOME\"</b>.</p>
 		</div>
 		<!-- standard page header ends -->";
 }

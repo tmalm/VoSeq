@@ -54,7 +54,13 @@ echo "<!--standard page header begins-->
 				Tobias Malm (<i>tobias.malm@uef.fi</i>)&nbsp;&nbsp;</h2>
 			
 			<p class=\"introduction\"><b>1.</b> This is the <b>user</b> interface of this database, which means you can only search and look for records, retrieve sequences, get details of vouchers and look at vouchers' pictures.
-			<br /><b>2.</b> If you want to add, delete or update records and sequences, please click the <b>\"admin\"</b> button (for administration).</p>
+			<br /><b>2.</b> If you want to add, delete or update records and sequences, please click the <b>\"ADMIN\"</b> button (for administration).
+			<br />
+				<b>3.</b> The full documentation is here: <a href='http://nymphalidae.utu.fi/cpena/VoSeq_docu.html'>http://nymphalidae.utu.fi/cpena/VoSeq_docu.html</a>.
+			<br />
+				<b>4.</b> The source code is available at: <a href='https://github.com/carlosp420/VoSeq'>https://github.com/carlosp420/VoSeq</a>.
+			
+			</p>
 		</div>
 		<!-- standard page header ends -->";
 }

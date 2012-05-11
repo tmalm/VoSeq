@@ -519,6 +519,9 @@ else
 			<tr><td valign=\"top\">";
 	?>
 	<!-- 	search boxes and options -->
+
+	<b>Query by single field or any combination of fields. <a href="http://nymphalidae.utu.fi/cpena/VoSeq_docu.html#Search" title="http://nymphalidae.utu.fi/cpena/VoSeq_docu.html#Search">See more help.</a></b>
+	
 	<form action="adsearch.php" method="post">
 	<table width="800" border="0"> <!-- big parent table -->
 	<tr><td>
