@@ -64,6 +64,10 @@ nav();
 echo "<div id=\"content\">";
 ?>
 
+<b>You can create a MS Excel table with specimen codes, genus and species names, genes used in analysis along with their accession numbers. <br /> Instead of
+typing your specimen codes in the text area below, you could select a Taxonset (provided that it has been set <a href="admin/add_taxonset.php">here</a>).<br />
+This table will be ready to attach to a manuscript for publication.</b>
+
 
 <form action="includes/make_table.php" method="post">
 <table border="0" width="960px" cellpadding="5px"> <!-- super table --> 

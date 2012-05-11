@@ -1543,7 +1543,7 @@ elseif (!$_GET['new'] && !$_POST['submitNew'] && !$_POST['submitNoNew'] &&  !$_G
 	echo "<div id=\"content_wide\">";
 	echo "<table border=\"0\" width=\"1000px\"> <!-- super table -->
 			<tr>
-				<td valign=\"top\" style=\"text-align: center;\">";
+				<td valign=\"top\" style=\"text-align: left;\">";
 					echo "<a href='" .$base_url . "/home.php'" ?> onclick="return redirect('add_taxonset.php?new=new');">
 						<b>Add Taxon set by browsing</b></a><br /><br /> <?php
 					echo "<a href='" .$base_url . "/home.php'" ?> onclick="return redirect('add_taxonset.php?list=list');">
@@ -1571,6 +1571,9 @@ elseif (!$_GET['new'] && !$_POST['submitNew'] && !$_POST['submitNoNew'] &&  !$_G
 		// iterate through result set
 		// print article titles
 		echo "<h1>Existing taxon sets:</h1>\n";
+		
+		echo "<b>Taxonsets is a way to make a list of taxa that are being used for a specific project or analysis. A Taxonset is just a list of voucher codes. By having Taxonsets, you can quickly create datasets for them.</b>";
+
 		echo "<ul>";
 
 		$i = 1; // count for tooltips in dojo
@@ -1595,8 +1598,12 @@ elseif (!$_GET['new'] && !$_POST['submitNew'] && !$_POST['submitNoNew'] &&  !$_G
 	// display message
 	else {
 		?>
-	
-		<font size="-1">No records currently available</font>
+		<b>Taxonsets is a way to make a list of taxa that are being used for a specific project or analysis. A Taxonset is just a list of voucher codes. By having Taxonsets, you can quickly create datasets for them.</b>	
+
+		<br />
+		<br />
+
+		<font size="-1">No Taxonsets currently available</font>
 	
 		<?php
 	}

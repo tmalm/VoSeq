@@ -144,6 +144,8 @@ if ($_GET['new'])
 <tr><td valign="top">
 	<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 
+<b>Create a definition for genes. Specify "Reading frame" if you want to create datasets by codon positions.</b>
+
 <table width="800" border="0"> <!-- big parent table -->
 <tr><td valign="top">
 	<table border="0" cellspacing="10"> <!-- table child 1 -->
@@ -660,8 +662,11 @@ elseif (!$_GET['new'] && !$_POST['submitNew'] && !$_POST['submitNoNew'] &&  !$_G
 	if (mysql_num_rows($result) > 0) {
 		// iterate through result set
 		// print article titles
-		echo "<h1>Existing genes:</h1>\n<ul>";
+		echo "<h1>Existing genes:</h1>\n";
 
+		echo "<b>Create a definition for genes. Specify \"Reading frame\" if you want to create datasets by codon positions.</b>";
+
+		echo "<ul>";
 		$i = 1; // count for tooltips in dojo
 		while ($row = mysql_fetch_object($result))
 			{
@@ -684,6 +689,9 @@ elseif (!$_GET['new'] && !$_POST['submitNew'] && !$_POST['submitNoNew'] &&  !$_G
 		{
 		?>
 	
+		<b>Create a definition for genes. Specify "Reading frame" if you want to create datasets by codon positions.</b>
+		<br />
+		<br />
 		<font size="-1">No records currently available</font>
 	
 		<?php

@@ -150,6 +150,9 @@ if ($_GET['new']) {
 	echo "<div id=\"content\">";
 	?>
 
+	<b>You can create a new record by adding detailed information about it. The required fields are "Code in VoSeq" and "Genus". <br />
+	VoSeq will make sure that all codes are unique and will issue an error message if you submit a duplicate code.</b>
+
 	<table border="0" width="960px"> <!-- super table -->
 	<tr><td valign="top">
 		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">

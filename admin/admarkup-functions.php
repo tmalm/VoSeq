@@ -52,7 +52,10 @@ echo "<!--standard page header begins-->
 			
 			<p class=\"introduction_admin\">
 			<b>1.</b> This is the <b>administrator</b> interface of this database, which means you can add, update records, and delete sequences.<br />
-			<b>2.</b> If you are looking for sequences and want to use the database as <i>mortal user</i> click the <b>\"HOME\"</b>.</p>
+			<b>2.</b> If you are looking for sequences and want to use the database as <i>mortal user</i> click the <b>\"HOME\"</b>.<br />
+			<b>3.</b> You can add a single record by clicking on the link <b>Add new record</b>. <a href=\"http://nymphalidae.utu.fi/cpena/VoSeq_docu.html#%5B%5BAdding%20vouchers%5D%5D\">See more help.</a><br />	
+			<b>4.</b> You can upload voucher photos by clicking on the link <b>Picture missing</b> or the <b>Change picture</b> icon. <a href=\"http://nymphalidae.utu.fi/cpena/VoSeq_docu.html#%5B%5BUpload%20voucher%20photos%5D%5D\">See more help.</a>
+			</p>
 		</div>
 		<!-- standard page header ends -->";
 }

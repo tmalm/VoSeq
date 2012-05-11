@@ -57,6 +57,7 @@ else {unset($taxonsets);}
 echo "<div id=\"content\">";
 ?>
 
+<b>Select sequences you want for a dataset by entering the voucher codes and gene codes.</b> <a href="http://nymphalidae.utu.fi/cpena/VoSeq_docu.html#%5B%5BCreate%20datasets%5D%5D">See more help.</a>
 
 <form action="includes/process_dataset.php" method="post">
 <table border="0" width="960px" cellpadding="5px"> <!-- super table -->
