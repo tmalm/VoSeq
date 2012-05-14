@@ -17,14 +17,13 @@ Requirements
 ------------
 * [Apache web server][3]
 * [PHP][4]
-* [MySQL][5]
+* [MySQL](http://www.mysql.com/)
 
 Contributing
 ------------
 VoSeq is an open source project, you are welcome to contribute.
 
-[1]: [http://nymphalidae.utu.fi/cpena/VoSeq_docu.html]
+[1]: [[http://nymphalidae.utu.fi/cpena/VoSeq_docu.html]]
 [2]: [http://www.nymphalidae.net/VoSeq/]
 [3]: [http://httpd.apache.org/]
-[4]: [http://php.netq/]
-[5]: [http://www.mysql.com/]
+[4]: [http://php.net/]
