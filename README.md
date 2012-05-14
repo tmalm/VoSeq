@@ -9,21 +9,16 @@ Please send all bug complaints to Carlos Peña (mycalesis@gmail.com) or Tobias M
 
 Documentation
 -------------
-* Please find the documentation here: [http://nymphalidae.utu.fi/cpena/VoSeq_docu.html][1]
+* Please find the documentation here: [http://nymphalidae.utu.fi/cpena/VoSeq_docu.html](http://nymphalidae.utu.fi/cpena/VoSeq_docu.html)
 
-* A test installation containing sample data is here: [http://www.nymphalidae.net/VoSeq/][2]
+* A test installation containing sample data is here: [http://www.nymphalidae.net/VoSeq/](http://www.nymphalidae.net/VoSeq/)
 
 Requirements
 ------------
-* [Apache web server][3]
-* [PHP][4]
+* [Apache web server](http://httpd.apache.org/)
+* [PHP](http://php.net/)
 * [MySQL](http://www.mysql.com/)
 
 Contributing
 ------------
 VoSeq is an open source project, you are welcome to contribute.
-
-[1]: [[http://nymphalidae.utu.fi/cpena/VoSeq_docu.html]]
-[2]: [http://www.nymphalidae.net/VoSeq/]
-[3]: [http://httpd.apache.org/]
-[4]: [http://php.net/]
