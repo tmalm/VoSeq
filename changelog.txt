@@ -1,4 +1,4 @@
-VoSeq: a database to store voucher and sequence data    
+VoSeq: a database to store voucher and DNA sequence data for phylogenetic analysis
 
 Changelog:
 *Version 1.2.3
