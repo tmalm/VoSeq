@@ -14,7 +14,7 @@ ob_end_clean();//Clear output buffer//includes
 require_once'../api/phpFlickr/phpFlickr.php';
 
 define('UPLOAD_DIRECTORY', "$local_folder/pictures"); ## need to define it!!!
-define('PHOTO_EXTENSION', '.jpg');
+define('PHOTO_EXTENSION', '.png');
 
 // create api
 $f = new phpFlickr($flickr_api_key, $flickr_api_secret);
@@ -30,7 +30,7 @@ mysql_query("set names utf8") or die("Error in query: " . mysql_error());
 
 $photos = array();
 foreach($di as $file) {
-	preg_match("/^(.+)\.jpg\$/", $file, $matches);
+	preg_match("/^(.+)\.png\$/", $file, $matches);
 	if( $matches ) {
 		$photos[] = $matches[1];
 	}

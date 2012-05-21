@@ -2,6 +2,9 @@ VoSeq: a database to store voucher and DNA sequence data for phylogenetic analys
 
 Changelog:
 *Version 1.2.3
+20120521
+		- (CP) fixing creating and updating data for extraction, extractionTube,
+		  typeSpecies and dateExtraction for Windows environments.
 20120514
 		- (CP) including help text and links to online documentation..
 

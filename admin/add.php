@@ -2,7 +2,7 @@
 // #################################################################################
 // #################################################################################
 // Voseq admin/add.php
-// author(s): Carlos PeÃ±a & Tobias Malm
+// author(s): Carlos Peña & Tobias Malm
 // license   GNU GPL v2
 // source code available at https://github.com/carlosp420/VoSeq
 //
@@ -553,7 +553,50 @@ elseif ($_POST['submitNew']) {
 			if ($longitude != NULL) {
 				$query .= "longitude, ";
 			}
-			$query .= "timestamp, edits, latesteditor) VALUES ('$code', '$extractor', '$genus', '$orden', '$family', '$subfamily', '$tribe', '$subtribe', '$species', '$subspecies', '$typeSpecies', '$country', '$specificLocality', '$altitude', '$collector', '$dateCollection', '$voucherLocality', '$voucher', '$sex', '$hostorg', '$voucherCode', '$extraction', '$extractionTube', '$dateExtraction', '$publishedIn', '$notes', ";
+			$query .= "timestamp, edits, latesteditor) VALUES ('$code', ";
+			$query .= "'$extractor', '$genus', '$orden', '$family', '$subfamily',";
+			$query .= " '$tribe', '$subtribe', '$species', '$subspecies', ";
+
+			if( !isset($typeSpecies) || $typeSpecies == "" ) {
+				$query .= "NULL,";
+			}
+			else {
+				$query .= "'$typeSpecies',";
+			}
+
+			$query .= " '$country', '$specificLocality', '$altitude', '$collector', '$dateCollection', '$voucherLocality', '$voucher', '$sex', '$hostorg', '$voucherCode', ";
+			
+			if( !isset($extraction) || $extraction == "" || !is_numeric($extraction) ) {
+				$query .= "NULL, ";
+			}
+			else {
+				$query .= "'$extraction', ";
+			}
+
+			if( !isset($extractionTube) || $extractionTube == "" || !is_numeric($extractionTube) ) {
+				$query .= "NULL, ";
+			}
+			else {
+				$query .= "'$extractionTube', ";
+			}
+
+			$tmp = explode("-", $dateExtraction);
+			if( count($tmp) == "3" ) {
+				if( checkdate($tmp[1], $tmp[2], $tmp[0]) ) {
+					$dateExtraction = "$tmp[0]-$tmp[1]-$tmp[2]";
+					$query .= " '$dateExtraction', ";
+				}
+				else {
+					$query .= "NULL, ";
+				}
+			}
+			else {
+				$query .= "NULL, ";
+			}
+			unset($tmp);
+
+			$query .= " '$publishedIn', '$notes', ";
+
 			if ($latitude != NULL) {
 				$query .= "\"$latitude\", ";
 			}
@@ -1133,7 +1176,7 @@ elseif ($_POST['submitNoNew'])
 		$id1 = mysql_real_escape_string($id1);
 
 		// generate and execute query UPDATE
-		$query = "UPDATE ". $p_ . "vouchers SET code='$code1', extractor='$extractor', genus='$genus', orden='$orden',family='$family', subfamily='$subfamily', tribe='$tribe', subtribe='$subtribe', species='$species', subspecies='$subspecies', typeSpecies='$typeSpecies', country='$country', specificLocality='$specificLocality', ";
+		$query = "UPDATE ". $p_ . "vouchers SET code='$code1', extractor='$extractor', genus='$genus', orden='$orden',family='$family', subfamily='$subfamily', tribe='$tribe', subtribe='$subtribe', species='$species', subspecies='$subspecies', country='$country', specificLocality='$specificLocality', ";
 		if ($latitude == NULL) {
 			$query .= "latitude=NULL, ";
 		}
@@ -1147,7 +1190,28 @@ elseif ($_POST['submitNoNew'])
 		else {
 			$query .= "longitude=\"$longitude\", ";
 		}
-		$query .= "altitude='$altitude', collector='$collector', dateCollection='$dateCollection', voucherLocality='$voucherLocality', voucher='$voucher', sex='$sex', hostorg='$hostorg', voucherCode='$voucherCode', extraction='$extraction', extractionTube='$extractionTube',  dateExtraction='$dateExtraction', publishedIn='$publishedIn', notes='$notes', timestamp=NOW(), edits='$editsed', latesteditor='$latesteditor' WHERE id='$id1'";
+
+		if( $typeSpecies == "0" || $typeSpecies == "1" || $typeSpecies == "2" ) {
+			$query .= " typeSpecies='$typeSpecies', ";
+		}
+
+		if( isset($extraction) && $extraction != "" && is_numeric($extraction) ) {
+			$query .= " extraction='$extraction', ";
+		}
+		if( isset($extractionTube) && $extractionTube != "" && is_numeric($extractionTube) ) {
+			$query .= " extractionTube='$extractionTube', ";
+		}
+
+		$tmp = explode("-", $dateExtraction);
+		if( count($tmp) == "3" ) {
+			if( checkdate($tmp[1], $tmp[2], $tmp[0]) ) {
+				$dateExtraction = "$tmp[0]-$tmp[1]-$tmp[2]";
+				$query .= " dateExtraction='$dateExtraction', ";
+			}
+		}
+		unset($tmp);
+
+		$query .= " altitude='$altitude', collector='$collector', dateCollection='$dateCollection', voucherLocality='$voucherLocality', voucher='$voucher', sex='$sex', hostorg='$hostorg', voucherCode='$voucherCode', publishedIn='$publishedIn', notes='$notes', timestamp=NOW(), edits='$editsed', latesteditor='$latesteditor' WHERE id='$id1'";
 
 		$result = mysql_query($query) or die ("Error in query: $query. " . mysql_error());
 
