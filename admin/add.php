@@ -674,7 +674,7 @@ elseif ($_POST['submitNew']) {
 			echo "<li>$errorList[$x]";
 			}
 		echo '</ul>
-				You need to fill up at least two fields: code and genus!';
+				Don\'t forget to fill up at least two fields: code and genus';
 		echo "</td>";
 		echo "<td class=\"sidebar\" valign=\"top\">";
 			admin_make_sidebar();
