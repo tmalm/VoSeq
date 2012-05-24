@@ -106,7 +106,7 @@ if( $_GET['code'] && !isset($_GET['geneCode']) ) {
 				<td class="label">Sequence</td><td class="field4" colspan="4">&nbsp;</td>
 			</tr>
 			<tr><td class="field5" colspan="5">
-				 <textarea name="sequences" rows="6" cols="27"></textarea>
+				 <textarea name="sequences" rows="13" cols="27"></textarea>
 				 </td>
 			</tr>
 		</form>
@@ -139,9 +139,9 @@ if( $_GET['code'] && !isset($_GET['geneCode']) ) {
 		<tr><td class="label">Accession</td>
 			 <td class="field">
 			 	<input size="10" maxlength="250" type="text" name="accession"></td>
-		</tr>
+		<!-- </tr>
 		<tr><td class="label">Date Creation<br />(yyyy-mm-dd)</td>
-			 <td class="field"><input size="10" maxlength="250" type="text" name="dateCreation"></td></tr>
+			 <td class="field"><input size="10" maxlength="250" type="text" name="dateCreation"></td></tr> -->
 	</table>
 
 	</td>
@@ -185,11 +185,28 @@ if( $_GET['code'] && !isset($_GET['geneCode']) ) {
 					dataUrl="../dojo_data/comboBoxData_primer6.js" style="width: 94px;" name="primer6" maxListLength="15">
 				</select></td>
 		</tr>
+		</td>
+		</table>
+			<td width="200px">
+				&nbsp;
+			</td>
+			
+			</tr>
+			<tr><td colspan="2">
+			
+			<table width="160" cellspacing="0" border="0">
+			<caption>Notes</caption>
+				<tr>
+				<td class="label2">Notes</td>
+			</tr>
+			<tr><td class="field5">
+				 <textarea name="notes" rows="3" cols="20"></textarea>
+				 </td>
+			</tr>
+			</table>
 		<tr>
 			<td><input type="submit" name="submit" value="Add Sequence"></td></tr>
-	
-	</table>
-		
+
 	</td></tr>
 	</table><!-- end table child 2 -->
 
@@ -242,7 +259,8 @@ elseif ($_GET['code'] && $_GET['geneCode'] && $_GET['id'])
 						dateCreation,
 						dateModification,
 						timestamp,
-						(2*CHAR_LENGTH(sequences) - CHAR_LENGTH(REPLACE(sequences, '?', '')) - CHAR_LENGTH(REPLACE(sequences, '-', '')))
+						(2*CHAR_LENGTH(sequences) - CHAR_LENGTH(REPLACE(sequences, '?', '')) - CHAR_LENGTH(REPLACE(sequences, '-', ''))),
+						notes 
 				FROM ". $p_ . "sequences WHERE id='$id'";
 	$result = mysql_query($query) or die ("Error in query: $query. " . mysql_error());
 	$row = mysql_fetch_array($result);
@@ -310,7 +328,7 @@ elseif ($_GET['code'] && $_GET['geneCode'] && $_GET['id'])
 			</tr>
 			<tr>
 				<td class="field5" colspan="4">
-					<textarea name="sequences" rows="8" cols="27"><?php
+					<textarea name="sequences" rows="15" cols="27"><?php
 																	$wrapped_sequence = wordwrap($row['3'], 25, "\n", 1);
 																	echo $wrapped_sequence;
 																	?></textarea>
@@ -384,11 +402,29 @@ elseif ($_GET['code'] && $_GET['geneCode'] && $_GET['id'])
 		<tr>
 			<td class="field"><input size="14" maxlength="250" type="text" name="primer6" value="<?php if(isset($rowP->primer6)) { echo $rowP->primer6; } ?>"></td>
 		</tr>
+		</table>
+			<td width="200px">
+				&nbsp;
+			</td>
+			
+			</tr>
+			<tr><td colspan="2">
+			
+			<table width="160" cellspacing="0" border="0">
+			<caption>Notes</caption>
+				<tr>
+				<td class="label2">Notes</td>
+			</tr>
+			<tr><td class="field5">
+				 <textarea name="notes" rows="3" cols="20"><?php echo $row[9]; ?></textarea>
+				 </td>
+			</tr>
+			</table>
 		<tr>
 			<td><input type="submit" name="submit" value="Update Sequence"></td>
 		</tr>
 	
-	</table>
+<!--	</table> -->
 		
 	</td></tr>
 	</table><!-- end table child 2 -->

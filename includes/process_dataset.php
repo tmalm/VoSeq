@@ -225,7 +225,7 @@ else { //if special mode or Amino acid mode is not enabled, checking and buildin
 	//check outgroup existance
 	if ($format == "NEXUS" || $format == "TNT"){
 		if (isset($outgroup)) {
-			$queryog = "SELECT code, genus, species, orden, family, subfamily, tribe, subtribe, subspecies, hostorg ". $p_ . "FROM vouchers WHERE code='$outgroup'";
+			$queryog = "SELECT code, genus, species, orden, family, subfamily, tribe, subtribe, subspecies, hostorg, auctor FROM ". $p_ . "vouchers WHERE code='$outgroup'";
 			$resultog = mysql_query($queryog) or die("Error in query: $query. " . mysql_error());
 			// if records present
 			if( mysql_num_rows($resultog) > 0 ) {
@@ -550,7 +550,7 @@ else{
 		
 		foreach ($codes AS $item) {
 			$item = clean_item($item);
-			$query = "SELECT code, genus, species, orden, family, subfamily, tribe, subtribe, subspecies, hostorg FROM ". $p_ . "vouchers WHERE code='$item'";
+			$query = "SELECT code, genus, species, orden, family, subfamily, tribe, subtribe, subspecies, hostorg, auctor FROM ". $p_ . "vouchers WHERE code='$item'";
 			$result = mysql_query($query) or die("Error in query: $query. " . mysql_error());
 			// if records present
 			if( mysql_num_rows($result) > 0 ) {

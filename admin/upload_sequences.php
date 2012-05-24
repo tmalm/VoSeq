@@ -81,8 +81,8 @@ if ($seqvsvouch == 'vouch') {echo "Voucher upload";} else { echo "Sequence uploa
 	<li>This is only for adding data - not updating! If data is already present - the new data will be discarded (but listed as error)</li> 
 	</ul>
 	<td><u>Please edit your field headers names accordingly (not necessarily all or in that order):</u></br>
-	Code Order Family Subfamily Tribe Subtribe Genus Species Subspecies Hostorg Typespecies Country Locality Collector Coll.date<br />
-	Longitide Latitude Altitude  Vouchercode Voucher Voucherlocality Sex Extraction Extractor Extractiontube Extr.date Publ.in Notes<br /> </td>
+	Code Order Family Subfamily Tribe Subtribe Genus Species Subspecies Auctor Hostorg Typespecies Country Locality Collector Coll.date<br />
+	Longitide Latitude Altitude  Vouchercode Voucher Voucherlocality determined.by Sex Extraction Extractor Extractiontube Extr.date Publ.in Notes<br /> </td>
 <?php $example_input = "Something like this should be fine:\nCode	Order	Family	Genus	Species	Collector	Coll.date	Longitude	Latitude\ntA1	Hymenoptera	Tenthredinidae	Tenthredo	arcuata	Tobias Malm	2011-05-01	13.1111	12.1111\ntA2	Diptera	Syrphidae	Volucella	sp.	Tobias Malm	2010-06-01	10.1111	8.2222"; 
 }
 else { ?>
@@ -92,7 +92,7 @@ else { ?>
 	<li>This is only for adding data - not updating! If data is already present - the new data will be discarded (but listed as error)</li> 
 	</ul>
 	<td><u>Please edit your field headers names accordingly (not necessarily all or in that order):</u></br>
-	Code Genecode Sequences Laborator Accession Primer1 Primer2 Primer3 Primer4 Primer5 Primer6 Creation_date <br /> </td>
+	Code Genecode Sequences Laborator Accession Primer1 Primer2 Primer3 Primer4 Primer5 Primer6 <br /> </td>
 <?php $example_input = "Something like this should be fine:\nCode	genecode	Laborator	Primer1	Primer2	Sequences\n10	COI	Tobias Malm	fly-Ci-J-1514	A2590	ATGATGATGATGATGATGATGATGATG\n11	CAD	Tobias Malm	743nFi	1028Ri	GTGTGAGTGGTAGTGGTAGTGGTA";
 }
 //output input field

@@ -536,6 +536,16 @@ td.field10 {
 	color: #6D929B;
 	font: bold 12px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
 }
+
+
+td.field11 {
+	border-right: 1px solid #CD9782;
+	background: #fff;
+	padding: 3px 2px 5px 6px;
+	color: #6D929B;
+	font: bold 12px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+}
+
 td.sidebar {
 	width: 170px;
 }

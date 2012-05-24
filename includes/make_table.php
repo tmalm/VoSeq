@@ -99,7 +99,7 @@ if (isset($_POST['geneCodes'])){
 			$genes[] =  $k1;
 		}
 	}
-}else {$errorList[] = "No genes choosen - Please try again!"; }
+} else {unset($genes, $geneCodes);}//$errorList[] = "No genes choosen - Please try again!"; }
 
 // checking taxonset choice
 $taxonset = $_POST['taxonsets'];
@@ -169,8 +169,10 @@ foreach ( $_POST['tableadds'] as $k=> $c) {//loops through checkbox values and a
 			else {	$xls_file .= ucfirst($k) . $field_delimitor ;}
 	}
 }
-foreach( $genes as $item ) {
-	$xls_file .= strtoupper($item) . $field_delimitor;
+if (isset($genes)) {
+	foreach( $genes as $item ) {
+		$xls_file .= strtoupper($item) . $field_delimitor;
+	}
 }
 $xls_file .= "\n";
 
@@ -178,7 +180,7 @@ foreach ( $lines as $line ) {
 	$line = str_replace('"', "", $line);
 	$code = strtoupper(trim($line));
 
-	$query2 = "select code, genus, species, orden, family, subfamily, tribe, subtribe, subspecies, hostorg, collector, specificLocality, dateCollection, latitude, longitude, altitude, country FROM ". $p_ . "vouchers where code='$code'";
+	$query2 = "select code, genus, species, orden, family, subfamily, tribe, subtribe, subspecies, hostorg, collector, specificLocality, dateCollection, latitude, longitude, altitude, auctor, determinedBy, country FROM ". $p_ . "vouchers where code='$code'";
 	$result2 = mysql_query($query2) or die("Error in query: $query2. " . mysql_error());
 	while( $row2 = mysql_fetch_object($result2) ) {
 		foreach ( $_POST['tableadds'] as $k=> $c) {//loops through checkbox values and adds checked values to table
@@ -187,51 +189,52 @@ foreach ( $lines as $line ) {
 		//$species = "$row2->genus $row2->species";
 		//$coll_locality = "$row2->country: $row2->specificLocality";
 	}}}
+	if (isset($genes)) {
+		$geneCodes = array();
+		foreach( $genes as $gene ) {
+			$gene = trim($gene);
 
-	$geneCodes = array();
-	foreach( $genes as $gene ) {
-		$gene = trim($gene);
+			# if accession not, and no sequences, print - or leave empty
+			if ( $_POST['geneinfo'] == 'nobp') {	$geneCodes[$gene] = "";	}
+			else {	$geneCodes[$gene] = "-";	}
 
-		# if accession not, and no sequences, print - or leave empty
-		if ( $_POST['geneinfo'] == 'nobp') {	$geneCodes[$gene] = "";	}
-		else {	$geneCodes[$gene] = "-";	}
-
-		$query1 = "SELECT accession, sequences FROM ". $p_ . "sequences WHERE code='$code' AND geneCode='$gene'";
-		$result1 = mysql_query($query1) or die("Error in query: $query1. " . mysql_error());
-	
-		while( $row1 = mysql_fetch_object($result1) ) {
-			# if accession yes, then print accession number
-			if ( $_POST['geneinfo'] == 'accno') {
-				if ($row1->accession == true && $row1->accession != "NULL") {
-					$geneCodes[$gene] = $row1->accession;
+			$query1 = "SELECT accession, sequences FROM ". $p_ . "sequences WHERE code='$code' AND geneCode='$gene'";
+			$result1 = mysql_query($query1) or die("Error in query: $query1. " . mysql_error());
+		
+			while( $row1 = mysql_fetch_object($result1) ) {
+				# if accession yes, then print accession number
+				if ( $_POST['geneinfo'] == 'accno') {
+					if ($row1->accession == true && $row1->accession != "NULL") {
+						$geneCodes[$gene] = $row1->accession;
+						}
 					}
-				}
-				elseif ( $_POST['geneinfo'] == 'x-') {
-					if ( strlen($row1->sequences) > 10 ) {
-						$geneCodes[$gene] = 'X';
+					elseif ( $_POST['geneinfo'] == 'x-') {
+						if ( strlen($row1->sequences) > 10 ) {
+							$geneCodes[$gene] = 'X';
+						}
 					}
-				}
-				# if accession not, but there is sequences, print X
-				else {
-					if ( strlen($row1->sequences) > 10 ) {
-					//$geneCodes[$gene] = "X";
-					
-					 if ($_POST['star'] == 'star' ) {
-						unset($firstbase, $lastbase);
-						if ( $row1->sequences[0] == "?" ) { $firstbase = "*";}
-						if ( $row1->sequences[strlen($row1->sequences)-1]  == "?" ) { $lastbase = "*";}
-						$geneCodes[$gene] = $firstbase . strlen(str_replace("?" , "" , $row1->sequences)) . $lastbase;
-					 }
-					else{
-						$geneCodes[$gene] = strlen(str_replace("?" , "" , $row1->sequences));
+					# if accession not, but there is sequences, print X
+					else {
+						if ( strlen($row1->sequences) > 10 ) {
+						//$geneCodes[$gene] = "X";
+						
+						 if ($_POST['star'] == 'star' ) {
+							unset($firstbase, $lastbase);
+							if ( $row1->sequences[0] == "?" ) { $firstbase = "*";}
+							if ( $row1->sequences[strlen($row1->sequences)-1]  == "?" ) { $lastbase = "*";}
+							$geneCodes[$gene] = $firstbase . strlen(str_replace("?" , "" , $row1->sequences)) . $lastbase;
+						 }
+						else{
+							$geneCodes[$gene] = strlen(str_replace("?" , "" , $row1->sequences));
+						}
 					}
 				}
 			}
 		}
-	}
-	//$xls_file .= "\"$species\",\"$code\",\"$coll_locality\",";
-	foreach($geneCodes as $key => $val) {
-		$xls_file .= $val . $field_delimitor ;
+		//$xls_file .= "\"$species\",\"$code\",\"$coll_locality\",";
+		foreach($geneCodes as $key => $val) {
+			$xls_file .= $val . $field_delimitor ;
+		}
 	}
 	$xls_file .= "\n";
 	}

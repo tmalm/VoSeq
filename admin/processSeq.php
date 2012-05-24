@@ -177,8 +177,9 @@ elseif ($_POST['submit'] && !$_POST['update'])
 		$labPerson         = $_POST['labPerson'];
 		$geneCode          = $_POST['geneCode'];
 		$accession         = $_POST['accession'];
-		$dateCreation      = $_POST['dateCreation'];
+		$dateCreation      = date('Y-m-d'); //$_POST['dateCreation'];
 		$dateModification  = date('Y-m-d');
+		$notes             = $_POST['notes'];
 		
 		$primer1 = $_POST['primer1'];
 		$primer2 = $_POST['primer2'];
@@ -206,7 +207,7 @@ elseif ($_POST['submit'] && !$_POST['update'])
 							//insert edited edtilist
 							$querydel = "UPDATE ". $p_ . "vouchers SET edits='$editsed', latesteditor='$latesteditor', timestamp=NOW() WHERE code='$code'";
 							$result = mysql_query($querydel) or die ("Error in query: $querydel. " . mysql_error());
-		$queryS = "INSERT INTO ". $p_ . "sequences(code, sequences, labPerson, geneCode, accession, dateCreation, dateModification, timestamp) VALUES ('$code', '$sequences', '$labPerson', '$geneCode', '$accession', '$dateCreation', '$dateModification', NOW())";
+		$queryS = "INSERT INTO ". $p_ . "sequences(code, sequences, labPerson, geneCode, accession, dateCreation, dateModification, timestamp, notes) VALUES ('$code', '$sequences', '$labPerson', '$geneCode', '$accession', '$dateCreation', '$dateModification', NOW(), '$notes')";
 		$resultS = mysql_query($queryS) or die ("Error in query: $queryS. " . mysql_error());
 		
 		$queryP = "INSERT INTO ". $p_ . "primers(code, geneCode, primer1, primer2, primer3, primer4, primer5, primer6, timestamp) VALUES ('$code', '$geneCode', '$primer1', '$primer2','$primer3','$primer4','$primer5', '$primer6', NOW())";
@@ -328,6 +329,7 @@ elseif ($_POST['submit'] && $_POST['update'] && $_POST['id']) {
 			date_default_timezone_set($date_timezone); // php5
 		}
 		$dateModification  = date('Y-m-d');
+		$notes             = $_POST['notes'];
 		
 		$primer1 = $_POST['primer1'];
 		$primer2 = $_POST['primer2'];
@@ -337,7 +339,7 @@ elseif ($_POST['submit'] && $_POST['update'] && $_POST['id']) {
 		$primer6 = $_POST['primer6'];
 		
 			//checking which values are updated and fixing edit list
-			$querycompareS  = "SELECT sequences, labPerson, geneCode, dateCreation, accession, dateModification FROM ". $p_ . "sequences WHERE id='$id'";
+			$querycompareS  = "SELECT sequences, labPerson, geneCode, dateCreation, accession, dateModification, notes FROM ". $p_ . "sequences WHERE id='$id'";
 			$resultcompareS = mysql_query($querycompareS) or die ("Error in query: $querycompare. " . mysql_error());
 			$rowcompareS    = mysql_fetch_object($resultcompareS);
 			$edvalues = '';
@@ -347,6 +349,7 @@ elseif ($_POST['submit'] && $_POST['update'] && $_POST['id']) {
 			if ($geneCode != $rowcompareS->geneCode) {$edvalues = $edvalues . ", gene code"; $edcount = $edcount + 1; }
 			if ($accession != $rowcompareS->accession) {$edvalues = $edvalues . ", accession"; $edcount = $edcount + 1; }
 			if ($dateCreation != $rowcompareS->dateCreation) {$edvalues = $edvalues . ", creation date"; $edcount = $edcount + 1; }
+			if ($notes != $rowcompareS->notes) {$edvalues = $edvalues . ", notes"; $edcount = $edcount + 1; }
 			$querycompareP  = "SELECT primer1, primer2, primer3, primer4, primer5, primer6 FROM ". $p_ . "primers WHERE code='$code' AND geneCode='$geneCode'";
 			$resultcompareP = mysql_query($querycompareP) or die ("Error in query: $querycompare. " . mysql_error());
 			$rowcompareP    = mysql_fetch_object($resultcompareP);
@@ -387,7 +390,7 @@ elseif ($_POST['submit'] && $_POST['update'] && $_POST['id']) {
 			$result = mysql_query($querydel) or die ("Error in query: $querydel. " . mysql_error());
 		
 			//update sequence and primer tables
-			$queryS = "UPDATE ". $p_ . "sequences SET sequences='$sequences', labPerson='$labPerson', geneCode='$geneCode', dateCreation='$dateCreation', accession='$accession', dateModification='$dateModification', timestamp=NOW() WHERE id='$id'";
+			$queryS = "UPDATE ". $p_ . "sequences SET sequences='$sequences', labPerson='$labPerson', geneCode='$geneCode', dateCreation='$dateCreation', accession='$accession', dateModification='$dateModification', timestamp=NOW(), notes='$notes' WHERE id='$id'";
 			mysql_query($queryS) or die ("Error in query: $queryS. " . mysql_error());
 		
 			if( count((array)$rowcompareP) != "1" ) {

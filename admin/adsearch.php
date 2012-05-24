@@ -61,6 +61,8 @@ if (!empty($_POST))
 	     (!$_POST['tribe']      || trim($_POST['tribe'])      == '') &&
 	     (!$_POST['subtribe']   || trim($_POST['subtribe'])   == '') &&
 	  	  (!$_POST['subspecies'] || trim($_POST['subspecies']) == '') &&
+		  (!$_POST['auctor'] || trim($_POST['auctor']) == '') &&
+		  (!$_POST['determinedBy'] || trim($_POST['determinedBy']) == '') &&
 	       ($_POST['typeSpecies'] !='0' ) && ($_POST['typeSpecies'] !='1') &&
 		    ($_POST['genbank'] !='yes' ) && ($_POST['genbank'] !='no') &&
 		  (!$_POST['country']    || trim($_POST['country'])    == '') &&
@@ -166,8 +168,8 @@ if (!empty($_POST))
 						}
 					elseif ($key=='code_selected' || $key=='collector_selected' || $key=='country_selected' ||
 							  $key=='extractor_selected' || $key=='orden_selected' || $key=='family_selected' || $key=='genus_selected' ||
-							  $key=='species_selected' || $key=='subfamily_selected' || $key=='subspecies_selected' ||
-							  $key=='subtribe_selected'|| $key=='tribe_selected' || $key=='geneCode_selected' ||
+							  $key=='species_selected' || $key=='subfamily_selected' || $key=='subspecies_selected' || $key=='determinedBy_selected' ||
+							  $key=='subtribe_selected'|| $key=='tribe_selected' || $key=='geneCode_selected' || $key=='auctor_selected' ||
 							  $key=='genus_selected' || $key=='hostorg_selected' || $key=='edits_selected' || $key=='accession_selected')
 						{
 						continue;
@@ -353,7 +355,7 @@ if (!empty($_POST))
 							  $key=='extractor_selected' || $key=='orden_selected' || $key=='family_selected' || $key=='genus_selected' ||
 							  $key=='species_selected' || $key=='subfamily_selected' || $key=='subspecies_selected' ||
 							  $key=='subtribe_selected'|| $key=='tribe_selected' || $key=='hostorg_selected' || $key=='geneCode_selected' ||
-							   $key=='edits_selected' ||$key=='genus_selected')
+							   $key=='edits_selected' ||$key=='genus_selected'||$key=='determinedBy_selected'||$key=='auctor_selected')
 						{
 						continue;
 						}
@@ -588,8 +590,12 @@ else
 					dataUrl="../dojo_data/comboBoxData_subspecies.js" style="width: 90px;" name="subspecies" maxListLength="20" />
 			</td>
 			<!-- <td>&nbsp;</td> -->
-			<td rowspan="1" class="label3" style="font-size:8px;">Type species</td>
-			<td rowspan="1" class="field2" ><input type="radio"  name="typeSpecies" value="1"> Yes<input type="radio" name="typeSpecies" value="0"> No</td>
+			<td class="label2">Auctor</td>
+			<td class="field2"><input type="text" name="auctor" size="15" /></td></tr>
+		</tr>
+		<tr>
+			<td colspan="2" class="label2">Type species</td>
+			<td colspan="2" class="field2" align="center"><input type="radio"  name="typeSpecies" value="1"> Yes<input type="radio" name="typeSpecies" value="0"> No</td>
 		</tr>
 		</tr>
 	</table>
@@ -643,20 +649,24 @@ else
 			<td class="label2">Voucher Locality</td>
 			<td class="label3">Voucher <img width="15px" height="16px" src="images/question.png" id="voucher" alt="" />
 								 <span dojoType="tooltip" connectId="voucher" delay="1" toggle="explode">-Spread?<br /> -Unspread?<br /> -In Slide?</span></td>
-			<td class="label3">Sex</td>
+			<td class="label3">Determined by</td>
 		</tr>
 		<tr>
 			<td class="field"><input type="text" name="voucherLocality" size="12" /></td>
 			<td class="field2"><input type="text" name="voucher" size="12" /></td>
-			<td class="field2" rowspan="3"><input type="radio" name="sex" value="larva"> Larva<br /><input type="radio" name="sex" value="male"> Male<br /><input type="radio" name="sex" value="female"> Female</td>
+			<td class="field2"><input type="text" name="determinedBy" size="12" /></td>
 		</tr>
 		<tr>
 			<td class="label2">Flickr photo id</td>
 			<td class="label3">Voucher Code</td>
 		</tr>
 		<tr>
-			<td class="field"><input type="text" name="voucherImage" size="12" /></td>
-			<td class="field2"><input type="text" name="voucherCode" size="12" /></td>
+			<td class="field7"><input type="text" name="voucherImage" size="12" /></td>
+			<td class="field11"><input type="text" name="voucherCode" size="12" /></td>
+		</tr>
+		<tr>
+			<td class="label4">Sex</td>
+			<td class="field10" colspan="3"><input type="radio" name="sex" value="larva"> Larva<input type="radio" name="sex" value="male"> Male<input type="radio" name="sex" value="female"> Female</td>
 		</tr>
 	</table>
 

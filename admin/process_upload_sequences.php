@@ -89,10 +89,10 @@ $input_type = $_POST['seqorvouch'];
 
 //fix field-value comparison list
 if ($input_type == 'vouch') {
-	$field_values = array("code","order","family","subfamily","tribe","subtribe","genus","species","subspecies","hostorg","typespecies","country","locality","longitude","latitude","altitude","collector","coll.date","vouchercode","voucher","voucherlocality","sex","extraction","extractiontube","extractor","extr.date","publ.in", "notes");
+	$field_values = array("code","order","family","subfamily","tribe","subtribe","genus","species","subspecies","auctor","hostorg","typespecies","country","locality","longitude","latitude","altitude","collector","coll.date","vouchercode","voucher","voucherlocality","determined.by","sex","extraction","extractiontube","extractor","extr.date","publ.in", "notes");
 }
 else {
-	$field_values = array("code","genecode","sequences","laborator","accession","primer1","primer2","primer3","primer4","primer5","primer6", "creation_date");
+	$field_values = array("code","genecode","sequences","laborator","accession","primer1","primer2","primer3","primer4","primer5","primer6");
 }
 
 
@@ -157,6 +157,7 @@ if ( $input_type == 'vouch') {
 			elseif ($item == "extr.date") { $field_array[] = "dateExtraction" ;}
 			elseif ($item == "extractiontube") { $field_array[] = "extractionTube" ;}
 			elseif ($item == "publ.in") { $field_array[] = "publishedIn" ;}
+			elseif ($item == "determined.by") { $field_array[] = "determinedBy" ;}
 			else { $field_array[] = $item ;}
 			}
 		else {
@@ -170,7 +171,7 @@ else {
 		if (in_array($item, $field_values)) {
 			if ($item == "genecode") { $field_array[] = "geneCode" ;}
 			elseif ($item == "laborator") { $field_array[] = "labPerson" ;}
-			elseif ($item == "creation_date") { $field_array[] = "dateCreation" ;}
+			//elseif ($item == "creation_date") { $field_array[] = "dateCreation" ;}
 			else { $field_array[] = $item ;}
 		}
 		else {
@@ -369,6 +370,21 @@ if ($input_type == 'vouch') {
 	}
 	unset($item, $xrow_num,$item_columns);
 
+		// checking genus field for empty values and in that case generating error
+	$where_extrDate = array_search("dateExtraction", $field_array);
+	$xrow_num = 0;
+	foreach($lines AS $item) {
+		$code_num = $xrow_num;
+		$xrow_num = $xrow_num + 1;
+		$item_columns = explode("	", $item);
+		$extrDate = trim($item_columns[$where_extrDate]);
+		$dElist = explode("-", $extrDate);
+		if ($extrDate != '' && checkdate($dElist[2],$dElist[1],$dElist[0]) == FALSE){
+			$errorList[] = "Invalid entry: <b>Extraction Date</b> in row <b>$xrow_num</b>(code = $code_array[$code_num])
+				</br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Date format should be: YYY-MM-DD";
+		}
+	}
+	unset($item, $xrow_num,$item_columns);
 	// checking latitude field for ilegal values and in that case generating error
 	//$where_lat = array_search("latitude", $field_array);
 	$where_lat = array_search("latitude", $field_array);
@@ -564,8 +580,8 @@ else {
 			$q_fields .= "$fields_to_query, timestamp, edits, latesteditor) VALUES ( $q_values, NOW(), '$editsadd', '$latesteditor' )";
 		}
 		else {
-			$dateModification  = date('Y-m-d');
-			$q_fields .= "$fields_to_query, timestamp, dateModification) VALUES ( $q_values, NOW(), '$dateModification')";
+			$dateCreation = date('Y-m-d');
+			$q_fields .= "$fields_to_query, timestamp, dateCreation) VALUES ( $q_values, NOW(), '$dateCreation')";
 			if ($if_primers > 0) {
 				$q_primers .= "$q_primer_fields, code, geneCode, timestamp) VALUES ( $q_primer_values, '$item_columns[$where_code]', '$item_columns[$where_geneCode]', NOW())";
 			}

@@ -507,6 +507,36 @@ td.field5 {
 }
 
 
+td.field6 {
+	border-right: 1px solid #C1DAD7;
+	background: #fff;
+	padding: 2px 2px 2px 4px;
+	color: #6D929B;
+	font: bold 12px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+}
+
+
+td.field7 {
+	border-right: 1px solid #C1DAD7;
+	border-left: 1px solid #C1DAD7;
+	background: #fff;
+	padding: 2px 2px 2px 4px;
+	color: #6D929B;
+	font: bold 12px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+}
+
+
+
+td.field8 {
+	border-right: 1px solid #C1DAD7;
+	border-bottom: 1px solid #C1DAD7;
+	border-top: 1px solid #C1DAD7;
+	background: #fff;
+	padding: 2px 2px 2px 4px;
+	color: #6D929B;
+	font: bold 12px "Trebuchet MS", Verdana, Arial, Helvetica, sans-serif;
+}
+
 td.sidebar {
 	width: 170px;
 }

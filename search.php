@@ -86,6 +86,8 @@ if(   (!$new_POST['orden']  || trim($new_POST['orden'])     == '') &&
 	  (!$new_POST['genus']      || trim($new_POST['genus'])      == '') &&
 	  (!isset($new_POST['species'])    || trim($new_POST['species'])    == '') &&
 	  (!$new_POST['subspecies'] || trim($new_POST['subspecies']) == '') &&
+	  (!$new_POST['auctor'] || trim($new_POST['auctor']) == '') &&
+	  (!$new_POST['determinedBy'] || trim($new_POST['determinedBy']) == '') &&
 	  (!$new_POST['country'] || trim($new_POST['country']) == '') &&
 	  (!$new_POST['specificLocality'] || trim($new_POST['specificLocality']) == '') &&
 	  (!$new_POST['longitude']  || trim($new_POST['longitude'])== '') &&
@@ -217,8 +219,8 @@ if(   (!$new_POST['orden']  || trim($new_POST['orden'])     == '') &&
 					elseif ($key=='code_selected' || $key=='collector_selected' || $key=='country_selected' ||
 							  $key=='extractor_selected' || $key=='orden_selected' || $key=='family_selected' || $key=='genus_selected' ||
 							  $key=='species_selected' || $key=='subfamily_selected' || $key=='subspecies_selected' ||
-							  $key=='subtribe_selected'|| $key=='tribe_selected' || $key=='geneCode_selected' ||
-							  $key=='genus_selected' || $key=='hostorg_selected' || $key=='accession_selected')
+							  $key=='subtribe_selected'|| $key=='tribe_selected' || $key=='geneCode_selected' || $key=='determinedBy_selected' ||
+							  $key=='genus_selected' || $key=='hostorg_selected' || $key=='accession_selected' || $key=='auctor_selected')
 						{
 						continue;
 						}
@@ -417,9 +419,9 @@ if(   (!$new_POST['orden']  || trim($new_POST['orden'])     == '') &&
 					}
 					elseif ($key=='code_selected' || $key=='collector_selected' || $key=='country_selected' ||
 							  $key=='extractor_selected' || $key=='orden_selected' || $key=='family_selected' || $key=='genus_selected' ||
-							  $key=='species_selected' || $key=='subfamily_selected' || $key=='subspecies_selected' ||
+							  $key=='species_selected' || $key=='subfamily_selected' || $key=='subspecies_selected' || $key=='determinedBy_selected' ||
 							  $key=='subtribe_selected'|| $key=='tribe_selected' || $key=='geneCode_selected' || $key=='hostorg_selected' ||
-							  $key=='genus_selected') {
+							  $key=='genus_selected' || $key=='auctor_selected') {
 						continue;
 					}
 					else {
@@ -664,9 +666,12 @@ else // empty POST, user has not entered query yet
 				<input dojoType="ComboBox" value="nada" autocomplete="false"
 					dataUrl="dojo_data/comboBoxData_subspecies.js" style="width: 90px;" name="subspecies" maxListLength="20" />
 			</td>
-			<!-- <td>&nbsp;</td> -->
-			<td rowspan="1" class="label3" style="font-size:8px;">Type species</td>
-			<td rowspan="1" class="field2" ><input type="radio"  name="typeSpecies" value="1"> Yes<input type="radio" name="typeSpecies" value="0"> No</td>
+			<td class="label2">Auctor</td>
+			<td class="field2"><input type="text" name="auctor" size="15" /></td></tr>
+		</tr>
+		<tr>
+			<td colspan="2" class="label2">Type species</td>
+			<td colspan="2" class="field2" align="center"><input type="radio"  name="typeSpecies" value="1"> Yes<input type="radio" name="typeSpecies" value="0"> No</td>
 		</tr>
 		</tr>
 	</table>
@@ -719,20 +724,24 @@ else // empty POST, user has not entered query yet
 			<td class="label2">Voucher Locality</td>
 			<td class="label3">Voucher <img width="15px" height="16px" src="images/question.png" id="voucher" alt="" />
 								 <span dojoType="tooltip" connectId="voucher" delay="1" toggle="explode">-Spread?<br /> -Unspread?<br /> -In Slide?</span></td>
-			<td class="label3">Sex</td>
+			<td class="label3">Determined by</td>
 		</tr>
 		<tr>
 			<td class="field"><input type="text" name="voucherLocality" size="12" /></td>
 			<td class="field2"><input type="text" name="voucher" size="12" /></td>
-			<td rowspan="3" class="field2"><input type="radio" name="sex" value="larva"> Larva<br /><input type="radio" name="sex" value="male"> Male<br /><input type="radio" name="sex" value="female"> Female</td>
+			<td class="field2"><input type="text" name="determinedBy" size="12" /></td>
 		</tr>
 		<tr>
 			<td class="label2">Flickr photo id</td>
 			<td class="label3">Voucher Code</td>
 		</tr>
 		<tr>
-			<td class="field"><input type="text" name="voucherImage" size="12" /></td>
-			<td class="field2"><input type="text" name="voucherCode" size="12" /></td>
+			<td class="field7"><input type="text" name="voucherImage" size="12" /></td>
+			<td class="field6"><input type="text" name="voucherCode" size="12" /></td>
+		</tr>
+		<tr>
+			<td class="label4">Sex</td>
+			<td class="field8" colspan="3"><input type="radio" name="sex" value="larva"> Larva<input type="radio" name="sex" value="male"> Male<input type="radio" name="sex" value="female"> Female</td>
 		</tr>
 	</table>
 

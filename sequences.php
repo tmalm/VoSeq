@@ -66,7 +66,8 @@ $query1 = "SELECT CHAR_LENGTH(sequences),
 						dateCreation, 
 						dateModification, 
 						sequences, 
-					 (CHAR_LENGTH(sequences) - (CHAR_LENGTH(sequences) - ((CHAR_LENGTH(sequences) - CHAR_LENGTH(REPLACE(sequences, '?', '')) + (CHAR_LENGTH(sequences) - CHAR_LENGTH(REPLACE(sequences, '-', '')))))))
+					 (CHAR_LENGTH(sequences) - (CHAR_LENGTH(sequences) - ((CHAR_LENGTH(sequences) - CHAR_LENGTH(REPLACE(sequences, '?', '')) + (CHAR_LENGTH(sequences) - CHAR_LENGTH(REPLACE(sequences, '-', ''))))))),
+					 notes
 		     FROM ". $p_ . "sequences WHERE code='$code' AND geneCode='$geneCode'";
 
 $query2 = "SELECT primer1, 
@@ -204,8 +205,23 @@ if ($row || $row1)
 			echo "<tr><td class=\"field\">&nbsp;</td></tr>";
 			}
 		?>
-	</table>
-		
+			<td width="200px">
+				&nbsp;
+			</td>
+			
+			</tr>
+			<tr><td colspan="2">
+			<table width="160" cellspacing="0" border="0">
+			<caption>Notes</caption>
+				<tr>
+				<td class="label2">Notes</td>
+			</tr>
+			<tr><td class="field5">
+				 <textarea name="notes" rows="3" cols="20"><?php echo $row1[8]; ?></textarea>
+				 </td>
+			</tr>
+			</table>
+		</table>
 	</td></tr>
 	</table><!-- end table child 2 -->
 

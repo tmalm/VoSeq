@@ -88,6 +88,7 @@ This table will be ready to attach to a manuscript for publication.</b>
 						<input type="checkbox" name="tableadds[genus]"checked>Genus
 						<input type="checkbox" name="tableadds[species]"checked>Species
 						<input type="checkbox" name="tableadds[subspecies]">Subspecies
+						<input type="checkbox" name="tableadds[auctor]">Auctor
 						<input type="checkbox" name="tableadds[hostorg]">Host org.
 					</td>
 				</tr>
@@ -98,6 +99,7 @@ This table will be ready to attach to a manuscript for publication.</b>
 						<input type="checkbox" name="tableadds[specificLocality]">Locality
 						<input type="checkbox" name="tableadds[collector]">Collector
 						<input type="checkbox" name="tableadds[dateCollection]">Coll. date
+						<input type="checkbox" name="tableadds[determinedBy]">Determined by</br>
 						<input type="checkbox" name="tableadds[altitude]">Altitude
 						<input type="checkbox" name="tableadds[latitude]">Latitude
 						<input type="checkbox" name="tableadds[longitude]">Longitude

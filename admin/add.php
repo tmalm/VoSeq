@@ -2,7 +2,7 @@
 // #################################################################################
 // #################################################################################
 // Voseq admin/add.php
-// author(s): Carlos Peña & Tobias Malm
+// author(s): Carlos PeÃ±a & Tobias Malm
 // license   GNU GPL v2
 // source code available at https://github.com/carlosp420/VoSeq
 //
@@ -158,7 +158,7 @@ if ($_GET['new']) {
 		<form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
 
 	<table width="800" border="0"> <!-- big parent table -->
-	<tr><td valign="top">
+	<tr><td valign="top" width="400">
 	<table border="0" cellspacing="10"> <!-- table child 1 -->
 	<tr><td>
 	
@@ -174,7 +174,7 @@ if ($_GET['new']) {
 			<td class="label">Subfamily</td>
 			<td class="field">
 				<select dojoType="ComboBox" value="nada"
-					dataUrl="../dojo_data/comboBoxData_subfamily.js" style="width: 70px;" name="subfamily" maxListLength="20">
+					dataUrl="../dojo_data/comboBoxData_subfamily.js" style="width: 90px;" name="subfamily" maxListLength="20">
 				</select></td>
 		</tr>
 		<tr>
@@ -201,7 +201,7 @@ if ($_GET['new']) {
 			<td class="label">Subtribe</td>
 			<td class="field">
 				<select dojoType="ComboBox" value="nada"
-					dataUrl="../dojo_data/comboBoxData_subtribe.js" style="width: 70px;" name="subtribe" maxListLength="20">
+					dataUrl="../dojo_data/comboBoxData_subtribe.js" style="width: 90px;" name="subtribe" maxListLength="20">
 				</select>
 			</td>
 		</tr>
@@ -215,7 +215,7 @@ if ($_GET['new']) {
 			<td class="label">Host org.</td>
 			<td class="field">
 				<select dojoType="ComboBox" value="nada"
-					dataUrl="../dojo_data/comboBoxData_hostorg.js" style="width: 70px;" name="hostorg" maxListLength="20">
+					dataUrl="../dojo_data/comboBoxData_hostorg.js" style="width: 90px;" name="hostorg" maxListLength="20">
 				</select>
 			</td>
 		</tr>
@@ -226,9 +226,15 @@ if ($_GET['new']) {
 					dataUrl="../dojo_data/comboBoxData_subspecies.js" style="width: 90px;" name="subspecies" maxListLength="20">
 				</select>
 			</td>
+						<td>&nbsp;</td>
+			<td class="label" >Auctor</td>
+			<td class="field" ><input size="17" maxlength="250" type="text" name="auctor" /></td>
+		</tr>
+		<tr>
+			
+			<td class="label2" colspan="2">Type species?</td>
 			<td>&nbsp;</td>
-			<td class="label" rowspan="1" style="font-size:8px;">Type species?</td>
-			<td class="field" rowspan="1"><input type="radio" name="typeSpecies" value="1"> Yes<input type="radio" name="typeSpecies" value="2" /> No</td>
+			<td class="field" colspan="2" align="center"><input type="radio" name="typeSpecies" value="1"> Yes<input type="radio" name="typeSpecies" value="2" /> No</td>
 		</tr>
 	</table>
 	
@@ -294,8 +300,10 @@ if ($_GET['new']) {
 			<td class="field2"><input size="12" maxlength="250" type="text" name="voucherCode" /></td>
 		</tr>
 		<tr>
-			<td class="label2">Sex</td>
-			<td class="field2" colspan="2"><input type="radio" name="sex" value="larva" /> Larva<input type="radio" name="sex" value="male" /> Male<input type="radio" name="sex" value="female" /> Female
+			<td class="label2">Determined by:</td><td class="label3" colspan="2">Sex</td>
+		</tr>
+		<tr>
+			<td class="field"><input size="12" maxlength="250" type="text" name="determinedBy" /></td><td class="field2" colspan="2"><input type="radio" name="sex" value="larva" /> Larva<input type="radio" name="sex" value="male" /> Male<input type="radio" name="sex" value="female" /> Female
 		</tr>
 
 	</table>
@@ -331,7 +339,7 @@ if ($_GET['new']) {
 		<tr>
 			<td colspan="2" class="field">
 				<select dojoType="ComboBox" value="nada"
-					dataUrl="../dojo_data/comboBoxData_extractor.js" style="width: 130px;" name="extractor" maxListLength="20">
+					dataUrl="../dojo_data/comboBoxData_extractor.js" style="width: 155px;" name="extractor" maxListLength="20">
 				</select>
 			</td>
 		</tr>
@@ -350,15 +358,19 @@ if ($_GET['new']) {
 	</tr>
 	<tr><td colspan="2">
 	
-	<table width="380" cellspacing="0" border="0">
+	<table width="160" cellspacing="0" border="0">
 	<caption>Publication and Notes</caption>
 		<tr>
 			<td width="40%" class="label2">Published in</td>
-			<td class="label3">Notes</td>
 		</tr>
 		<tr>
 			<td class="field"><textarea rows="5" cols="20" name="publishedIn"></textarea></td>
-			<td class="field2"><textarea rows="5" cols="20" name="notes"></textarea></td>
+		</tr>
+		<tr>
+			<td class="label2">Notes</td>
+		</tr>
+		<tr>
+			<td class="field"><textarea rows="5" cols="20" name="notes"></textarea></td>
 		</tr>
 		<tr><td>&nbsp;</td></tr>
 		<tr>
@@ -434,7 +446,9 @@ elseif ($_POST['submitNew']) {
 	$subtribe          = $_POST['subtribe'];
 	$species           = $_POST['species'];
 	$subspecies        = $_POST['subspecies'];
+	$auctor            = $_POST['auctor'];
 	$typeSpecies       = $_POST['typeSpecies'];
+	#if ($typeSpecies != "1" || $typeSpecies != "2") {$typeSpecies = "0";}
 	$country           = $_POST['country'];
 	$specificLocality  = $_POST['specificLocality'];
 	#$specificLocality  = utf8_encode($_POST['specificLocality']);
@@ -446,6 +460,7 @@ elseif ($_POST['submitNew']) {
 	$dateCollection    = $_POST['dateCollection'];
 	$voucherLocality   = $_POST['voucherLocality'];
 	$voucher           = $_POST['voucher'];
+	$determinedBy      = $_POST['determinedBy'];
 	$sex               = $_POST['sex'];
 	$hostorg           = $_POST['hostorg'];
 	#$hostorg           = utf8_encode($_POST['hostorg']);
@@ -453,6 +468,22 @@ elseif ($_POST['submitNew']) {
 	$extraction        = $_POST['extraction'];
 	$extractionTube    = $_POST['extractionTube'];
 	$dateExtraction    = $_POST['dateExtraction'];
+
+	if( $dateExtraction == "" ) {
+		unset($dateExtraction);
+	}
+	else {
+		$dElist = explode("-", $dateExtraction);
+		if( count($dElist) != 3 ) {
+			$errorList[] = "The Extraction date is not following standard.
+					    <br />Please add it accordingly: YYYY-MM-DD";
+		}
+		elseif( checkdate($dElist[1],$dElist[2],$dElist[0]) == FALSE ) {
+			$errorList[] = "The Extraction date is not following standard.
+					    <br />Please add it accordingly: YYYY-MM-DD";
+		}
+	}
+
 	$publishedIn       = $_POST['publishedIn'];
 	#$publishedIn       = utf8_encode($_POST['publishedIn']);
 	$notes             = $_POST['notes'];
@@ -524,6 +555,7 @@ elseif ($_POST['submitNew']) {
 			$subtribe = mysql_real_escape_string($subtribe);
 			$species = mysql_real_escape_string($species);
 			$subspecies = mysql_real_escape_string($subspecies);
+			$auctor = mysql_real_escape_string($auctor);
 			$typeSpecies = mysql_real_escape_string($typeSpecies);
 			$country = mysql_real_escape_string($country);
 			$specificLocality = mysql_real_escape_string($specificLocality);
@@ -532,12 +564,13 @@ elseif ($_POST['submitNew']) {
 			$dateCollection = mysql_real_escape_string($dateCollection);
 			$voucherLocality = mysql_real_escape_string($voucherLocality);
 			$voucher = mysql_real_escape_string($voucher);
+			$determinedBy = mysql_real_escape_string($determinedBy);
 			$sex = mysql_real_escape_string($sex);
 			$hostorg = mysql_real_escape_string($hostorg);
 			$voucherCode = mysql_real_escape_string($voucherCode);
 			$extraction = mysql_real_escape_string($extraction);
 			$extractionTube = mysql_real_escape_string($extractionTube);
-			$dateExtraction = mysql_real_escape_string($dateExtraction);
+			if (isset($dateExtraction)){$dateExtraction = mysql_real_escape_string($dateExtraction);}
 			$publishedIn = mysql_real_escape_string($publishedIn);
 			$notes = mysql_real_escape_string($notes);
 			$latitude = mysql_real_escape_string($latitude);
@@ -546,62 +579,27 @@ elseif ($_POST['submitNew']) {
 			$latesteditor = mysql_real_escape_string($latesteditor);
 			
 			// generate and execute query
-			$query = "INSERT INTO ". $p_ . "vouchers(code, extractor, genus, orden, family, subfamily, tribe, subtribe, species, subspecies, typeSpecies, country, specificLocality, altitude, collector, dateCollection, voucherLocality, voucher, sex, hostorg, voucherCode, extraction, extractionTube,  dateExtraction, publishedIn, notes, ";
+			$query = "INSERT INTO ". $p_ . "vouchers(code, extractor, genus, orden, family, subfamily, tribe, subtribe, species, subspecies, auctor, country, specificLocality, altitude, collector, dateCollection, voucherLocality, voucher, determinedBy, sex, hostorg, voucherCode, extraction, extractionTube, publishedIn, notes, ";
+			if (isset($dateExtraction)){$query .= "dateExtraction, "; }
 			if ($latitude != NULL ) { 
 				$query .= "latitude, ";
 			}
 			if ($longitude != NULL) {
 				$query .= "longitude, ";
 			}
-			$query .= "timestamp, edits, latesteditor) VALUES ('$code', ";
-			$query .= "'$extractor', '$genus', '$orden', '$family', '$subfamily',";
-			$query .= " '$tribe', '$subtribe', '$species', '$subspecies', ";
-
-			if( !isset($typeSpecies) || $typeSpecies == "" ) {
-				$query .= "NULL,";
-			}
-			else {
-				$query .= "'$typeSpecies',";
-			}
-
-			$query .= " '$country', '$specificLocality', '$altitude', '$collector', '$dateCollection', '$voucherLocality', '$voucher', '$sex', '$hostorg', '$voucherCode', ";
-			
-			if( !isset($extraction) || $extraction == "" || !is_numeric($extraction) ) {
-				$query .= "NULL, ";
-			}
-			else {
-				$query .= "'$extraction', ";
-			}
-
-			if( !isset($extractionTube) || $extractionTube == "" || !is_numeric($extractionTube) ) {
-				$query .= "NULL, ";
-			}
-			else {
-				$query .= "'$extractionTube', ";
-			}
-
-			$tmp = explode("-", $dateExtraction);
-			if( count($tmp) == "3" ) {
-				if( checkdate($tmp[1], $tmp[2], $tmp[0]) ) {
-					$dateExtraction = "$tmp[0]-$tmp[1]-$tmp[2]";
-					$query .= " '$dateExtraction', ";
-				}
-				else {
-					$query .= "NULL, ";
-				}
-			}
-			else {
-				$query .= "NULL, ";
-			}
-			unset($tmp);
-
-			$query .= " '$publishedIn', '$notes', ";
-
+			$query .= "typeSpecies, timestamp, edits, latesteditor) VALUES ('$code', '$extractor', '$genus', '$orden', '$family', '$subfamily', '$tribe', '$subtribe', '$species', '$subspecies', '$auctor', '$country', '$specificLocality', '$altitude', '$collector', '$dateCollection', '$voucherLocality', '$voucher', '$determinedBy','$sex', '$hostorg', '$voucherCode', '$extraction', '$extractionTube', '$publishedIn', '$notes', ";
+			if (isset($dateExtraction)){$query .= "'$dateExtraction', "; }
 			if ($latitude != NULL) {
 				$query .= "\"$latitude\", ";
 			}
 			if ($longitude != NULL) {
 				$query .= "\"$longitude\", ";
+			}
+			if( !isset($typeSpecies) || $typeSpecies == "" ) {
+				$query .= "NULL,";
+			}
+			else {
+				$query .= "'$typeSpecies',";
 			}
 			$query .= "NOW(), '$editsadd', '$latesteditor' )";
 		
@@ -703,7 +701,7 @@ elseif (!$_POST['submitNoNew'] && $_GET['code']) {
 	}
 
 	// check for duplicate code
-	$query1  = "SELECT id, code, extractor, genus, orden, family, subfamily, tribe, subtribe, species, subspecies, typeSpecies, country, specificLocality, latitude, longitude, altitude, collector, dateCollection, voucherLocality, voucher, sex, hostorg, voucherCode, extraction, extractionTube, dateExtraction, publishedIn, notes, edits, voucherImage, thumbnail FROM ". $p_ . "vouchers WHERE code='$code1'";
+	$query1  = "SELECT id, code, extractor, genus, orden, family, subfamily, tribe, subtribe, species, subspecies, auctor, typeSpecies, country, specificLocality, latitude, longitude, altitude, collector, dateCollection, voucherLocality, voucher, determinedBy, sex, hostorg, voucherCode, extraction, extractionTube, dateExtraction, publishedIn, notes, edits, voucherImage, thumbnail FROM ". $p_ . "vouchers WHERE code='$code1'";
 	$result1 = mysql_query($query1) or die ("Error in query: $query1. " . mysql_error());
 	$row1    = mysql_fetch_object($result1);
 	
@@ -755,7 +753,7 @@ elseif (!$_POST['submitNoNew'] && $_GET['code']) {
 	<table width="760px" border="0">
 		<!-- big parent table -->
 		<tr>
-			<td valign="top">
+			<td valign="top" width="400">
 				<table border="0" cellspacing="10">
 					<!-- table child 1 -->
 					<tr>
@@ -788,7 +786,10 @@ elseif (!$_POST['submitNoNew'] && $_GET['code']) {
 								<tr>
 									<td class="label">Subspecies</td><td class="field"><input size="12" maxlength="250" type="text" name="subspecies" value="<?php echo $row1->subspecies; ?>" /></td>
 									<td width="20">&nbsp;</td>
-									<td class="label" rowspan="1" style="font-size:8px;" >Type species?</td><td class="field" rowspan="1"><input type="radio" name="typeSpecies" value="1" <?php if ($row1->typeSpecies == 1) { echo "checked"; } ?> /> Yes<input type="radio" name="typeSpecies" value="2" <?php if ($row1->typeSpecies == 2) { echo "checked"; } ?> /> No</td>
+									<td class="label">Auctor</td><td class="field"><input size="12" maxlength="250" type="text" name="auctor" value="<?php echo $row1->auctor; ?>" /></td>
+								</tr>
+								<tr>
+									<td class="label2" colspan="2" >Type species?</td><td width="20">&nbsp;</td><td class="field" colspan="2" align="center"><input type="radio" name="typeSpecies" value="1" <?php if ($row1->typeSpecies == 1) { echo "checked"; } ?> /> Yes<input type="radio" name="typeSpecies" value="2" <?php if ($row1->typeSpecies == 2) { echo "checked"; } ?> /> No</td>
 								</tr>
 							</table>
 
@@ -853,7 +854,10 @@ elseif (!$_POST['submitNoNew'] && $_GET['code']) {
 									<td class="field2"><input size="12" maxlength="250" type="text" name="voucherCode" value="<?php echo $row1->voucherCode; ?>"/></td>
 								</tr>
 								<tr>
-									<td class="label2">Sex</td>
+									<td class="label2">Determined by:</td><td class="label3" colspan="2">Sex</td>
+								</tr>
+								<tr>
+									<td class="field"><input size="12" maxlength="250" type="text" name="determinedBy" value="<?php echo $row1->determinedBy; ?>" /></td>
 									<td class="field2" colspan="2"><input type="radio" name="sex" value="larva" <?php if ($row1->sex == 'larva') echo "checked"; ?>/> Larva<input type="radio" name="sex" value="male" <?php if ($row1->sex == 'male') echo "checked"; ?>/> Male<input type="radio" name="sex" value="female" <?php if ($row1->sex == 'female') echo "checked"; ?>/> Female
 								</tr>
 							</table>
@@ -881,7 +885,7 @@ elseif (!$_POST['submitNoNew'] && $_GET['code']) {
 								</tr>
 								<tr>
 									<td class="field"><input size="7" maxlength="250" type="text" name="extraction" value="<?php echo $row1->extraction; ?>" /></td>
-									<td class="field2"><input size="7" maxlength="250" type="text" name="extractionTube" value="<?php echo $row1->extractionTube; ?>" /></td>
+									<td class="field2"><input size="11" maxlength="250" type="text" name="extractionTube" value="<?php echo $row1->extractionTube; ?>" /></td>
 								</tr>
 		
 								<tr>
@@ -889,12 +893,12 @@ elseif (!$_POST['submitNoNew'] && $_GET['code']) {
 														<span dojoType="tooltip" connectId="extractor" delay="1" toggle="explode">Person that performed the DNA extraction</span></td>
 								</tr>
 								<tr>
-									<td colspan="2" class="field"><input size="18" maxlength="250" type="text" name="extractor" value="<?php echo $row1->extractor; ?>" /></td>
+									<td colspan="2" class="field"><input size="26" maxlength="250" type="text" name="extractor" value="<?php echo $row1->extractor; ?>" /></td>
 								</tr>
 								
 								<tr>
 									<td class="label">Date (yyyy-mm-dd)</td>
-									<td class="field"><input size="8" maxlength="250" type="text" name="dateExtraction" value="<?php echo $row1->dateExtraction; ?>" /></td>
+									<td class="field"><input size="12" maxlength="250" type="text" name="dateExtraction" value="<?php echo $row1->dateExtraction; ?>" /></td>
 								</tr>
 							</table>
 
@@ -924,7 +928,7 @@ elseif (!$_POST['submitNoNew'] && $_GET['code']) {
 								<td colspan="2">
 
 									<table width="380px" cellspacing="0" border="0">
-										<caption>Publication and Notes</caption>
+										<caption>Record History</caption>
 											<tr>
 												<td width="40%" class="label2">Record history</td>
 											</tr>
@@ -1008,6 +1012,7 @@ elseif ($_POST['submitNoNew'])
 	$subtribe          = $_POST['subtribe'];
 	$species           = $_POST['species'];
 	$subspecies        = $_POST['subspecies'];
+	$auctor           = $_POST['auctor'];
 	$typeSpecies       = $_POST['typeSpecies'];
 		//if ($typeSpecies != '1' && $typeSpecies != '2') {$typeSpecies = '0';}
 	$country           = $_POST['country'];
@@ -1019,12 +1024,29 @@ elseif ($_POST['submitNoNew'])
 	$dateCollection    = $_POST['dateCollection'];
 	$voucherLocality   = $_POST['voucherLocality'];
 	$voucher           = $_POST['voucher'];
+	$determinedBy      = $_POST['determinedBy'];
 	$sex               = $_POST['sex'];
 	$hostorg           = $_POST['hostorg'];
 	$voucherCode       = $_POST['voucherCode'];
 	$extraction        = $_POST['extraction'];
 	$extractionTube    = $_POST['extractionTube'];
 	$dateExtraction    = $_POST['dateExtraction'];
+
+	if( $dateExtraction == "" ) {
+		unset($dateExtraction);
+	}
+	else {
+		$dElist = explode("-", $dateExtraction);
+		if( count($dElist) != 3 ) {
+			$errorList[] = "The Extraction date is not following standard.
+				    <br />Please add it accordingly: YYYY-MM-DD";
+		}
+		elseif( checkdate($dElist[1],$dElist[2],$dElist[0]) == FALSE ) {
+			$errorList[] = "The Extraction date is not following standard.
+					    <br />Please add it accordingly: YYYY-MM-DD";
+		}
+	}
+
 	$publishedIn       = $_POST['publishedIn'];
 	$notes             = $_POST['notes'];
 	$latesteditor      = $_SESSION['SESS_FIRST_NAME']. " ". $_SESSION['SESS_LAST_NAME'];
@@ -1086,7 +1108,7 @@ elseif ($_POST['submitNoNew'])
 			}
 			
 		//checking which values are updated and fixing edit list
-			$querycompare  = "SELECT id, code, extractor, genus, orden, family, subfamily, tribe, subtribe, species, subspecies, typeSpecies, country, specificLocality, latitude, longitude, altitude, collector, dateCollection, voucherLocality, voucher, sex, hostorg, voucherCode, extraction, extractionTube, dateExtraction, publishedIn, notes FROM ". $p_ . "vouchers WHERE code='$code1'";
+			$querycompare  = "SELECT id, code, extractor, genus, orden, family, subfamily, tribe, subtribe, species, subspecies, typeSpecies, country, specificLocality, latitude, longitude, altitude, collector, dateCollection, voucherLocality, voucher, determinedBy, sex, hostorg, voucherCode, extraction, extractionTube, dateExtraction, publishedIn, notes FROM ". $p_ . "vouchers WHERE code='$code1'";
 			$resultcompare = mysql_query($querycompare) or die ("Error in query: $querycompare. " . mysql_error());
 			$rowcompare    = mysql_fetch_object($resultcompare);
 			$edvalues = '';
@@ -1102,6 +1124,7 @@ elseif ($_POST['submitNoNew'])
 				if ($subtribe != $rowcompare->subtribe) {$edvalues = $edvalues . ", subtribe"; $edcount = $edcount + 1; }
 				if ($species != $rowcompare->species) {$edvalues = $edvalues . ", species" ; $edcount = $edcount + 1; }
 				if ($subspecies != $rowcompare->subspecies) {$edvalues = $edvalues . ", subspecies" ; $edcount = $edcount + 1; }
+				if ($auctor != $rowcompare->auctor) {$edvalues = $edvalues . ", auctor" ; $edcount = $edcount + 1; }
 				if ($typeSpecies != $rowcompare->typeSpecies ){ if ( $typeSpecies == '1' || $typeSpecies == '2') {$edvalues = $edvalues . ", type species" ; $edcount = $edcount + 1; }}
 				if ($country != $rowcompare->country) {$edvalues = $edvalues . ", country" ; $edcount = $edcount + 1; }
 				if ($specificLocality != $rowcompare->specificLocality) {$edvalues = $edvalues . ", specific locality" ; $edcount = $edcount + 1; }
@@ -1112,12 +1135,13 @@ elseif ($_POST['submitNoNew'])
 				if ($dateCollection != $rowcompare->dateCollection) {$edvalues = $edvalues . ", collection date" ; $edcount = $edcount + 1; }
 				if ($voucherLocality != $rowcompare->voucherLocality) {$edvalues = $edvalues . ", voucher locality" ; $edcount = $edcount + 1; }
 				if ($voucher != $rowcompare->voucher) {$edvalues = $edvalues . ", voucher" ; $edcount = $edcount + 1; }
+				if ($determinedBy != $rowcompare->determinedBy) {$edvalues = $edvalues . ", determined by" ; $edcount = $edcount + 1; }
 				if ($sex != $rowcompare->sex ){ if ( $sex == 'male' || $sex == 'female' || $sex == 'larva') {$edvalues = $edvalues . ", sex" ; $edcount = $edcount + 1; }}
 				if ($hostorg != $rowcompare->hostorg) {$edvalues = $edvalues . ", host org." ; $edcount = $edcount + 1; }
 				if ($voucherCode != $rowcompare->voucherCode) {$edvalues = $edvalues . ", voucher code" ; $edcount = $edcount + 1; }
 				if ($extraction != $rowcompare->extraction) {$edvalues = $edvalues . ", extraction" ; $edcount = $edcount + 1; }
 				if ($extractionTube != $rowcompare->extractionTube) {$edvalues = $edvalues . ", extraction tube" ; $edcount = $edcount + 1; }
-				if ($dateExtraction != $rowcompare->dateExtraction) {$edvalues = $edvalues . ", Extraction date" ; $edcount = $edcount + 1; }
+				if (isset($dateExtraction) && $dateExtraction != $rowcompare->dateExtraction) {$edvalues = $edvalues . ", Extraction date" ; $edcount = $edcount + 1; }
 				if ($publishedIn != $rowcompare->publishedIn) {$edvalues = $edvalues . ", Published in" ; $edcount = $edcount + 1; }
 				if ($notes != $rowcompare->notes) {$edvalues = $edvalues . ", notes" ; $edcount = $edcount + 1; }
 						//fix edvalues-string
@@ -1154,6 +1178,7 @@ elseif ($_POST['submitNoNew'])
 		$subtribe = mysql_real_escape_string($subtribe);
 		$species = mysql_real_escape_string($species);
 		$subspecies = mysql_real_escape_string($subspecies);
+		$auctor = mysql_real_escape_string($auctor);
 		$typeSpecies = mysql_real_escape_string($typeSpecies);
 		$country = mysql_real_escape_string($country);
 		$latitude = mysql_real_escape_string($latitude);
@@ -1163,12 +1188,13 @@ elseif ($_POST['submitNoNew'])
 		$dateCollection = mysql_real_escape_string($dateCollection);
 		$voucherLocality = mysql_real_escape_string($voucherLocality);
 		$voucher = mysql_real_escape_string($voucher);
+		$determinedBy = mysql_real_escape_string($determinedBy);
 		$sex = mysql_real_escape_string($sex);
 		$hostorg = mysql_real_escape_string($hostorg);
 		$voucherCode = mysql_real_escape_string($voucherCode);
 		$extraction = mysql_real_escape_string($extraction);
 		$extractionTube = mysql_real_escape_string($extractionTube);
-		$dateExtraction = mysql_real_escape_string($dateExtraction);
+		if (isset($dateExtraction)){$dateExtraction = mysql_real_escape_string($dateExtraction);}
 		$publishedIn = mysql_real_escape_string($publishedIn);
 		$notes = mysql_real_escape_string($notes);
 		$editsed = mysql_real_escape_string($editsed);
@@ -1176,42 +1202,24 @@ elseif ($_POST['submitNoNew'])
 		$id1 = mysql_real_escape_string($id1);
 
 		// generate and execute query UPDATE
-		$query = "UPDATE ". $p_ . "vouchers SET code='$code1', extractor='$extractor', genus='$genus', orden='$orden',family='$family', subfamily='$subfamily', tribe='$tribe', subtribe='$subtribe', species='$species', subspecies='$subspecies', country='$country', specificLocality='$specificLocality', ";
+		$query = "UPDATE ". $p_ . "vouchers SET code='$code1', extractor='$extractor', genus='$genus', orden='$orden',family='$family', subfamily='$subfamily', tribe='$tribe', subtribe='$subtribe', species='$species', subspecies='$subspecies', auctor='$auctor', country='$country', specificLocality='$specificLocality', ";
 		if ($latitude == NULL) {
 			$query .= "latitude=NULL, ";
 		}
 		else {
 			$query .= "latitude=\"$latitude\", ";
 		}
-
 		if ($longitude == NULL) {
 			$query .= "longitude=NULL, ";
 		}
 		else {
 			$query .= "longitude=\"$longitude\", ";
 		}
-
 		if( $typeSpecies == "0" || $typeSpecies == "1" || $typeSpecies == "2" ) {
 			$query .= " typeSpecies='$typeSpecies', ";
 		}
-
-		if( isset($extraction) && $extraction != "" && is_numeric($extraction) ) {
-			$query .= " extraction='$extraction', ";
-		}
-		if( isset($extractionTube) && $extractionTube != "" && is_numeric($extractionTube) ) {
-			$query .= " extractionTube='$extractionTube', ";
-		}
-
-		$tmp = explode("-", $dateExtraction);
-		if( count($tmp) == "3" ) {
-			if( checkdate($tmp[1], $tmp[2], $tmp[0]) ) {
-				$dateExtraction = "$tmp[0]-$tmp[1]-$tmp[2]";
-				$query .= " dateExtraction='$dateExtraction', ";
-			}
-		}
-		unset($tmp);
-
-		$query .= " altitude='$altitude', collector='$collector', dateCollection='$dateCollection', voucherLocality='$voucherLocality', voucher='$voucher', sex='$sex', hostorg='$hostorg', voucherCode='$voucherCode', publishedIn='$publishedIn', notes='$notes', timestamp=NOW(), edits='$editsed', latesteditor='$latesteditor' WHERE id='$id1'";
+		if (isset($dateExtraction)) {$query .= "dateExtraction='$dateExtraction', ";}
+		$query .= "altitude='$altitude', collector='$collector', dateCollection='$dateCollection', voucherLocality='$voucherLocality', voucher='$voucher', determinedBy='$determinedBy', sex='$sex', hostorg='$hostorg', voucherCode='$voucherCode', extraction='$extraction', extractionTube='$extractionTube',  publishedIn='$publishedIn', notes='$notes', timestamp=NOW(), edits='$editsed', latesteditor='$latesteditor' WHERE id='$id1'";
 
 		$result = mysql_query($query) or die ("Error in query: $query. " . mysql_error());
 
@@ -1298,7 +1306,7 @@ elseif ($_POST['submitNoNew'])
 			echo "<li>$errorList[$x]";
 			}
 		echo '</ul>
-				You need to fill up at least two fields: code and genus!';
+				Don\'t forget to fill up at least two fields: code and genus';
 		echo "</td>";
 		echo "<td class=\"sidebar\" valign=\"top\">";
 		admin_make_sidebar(); 

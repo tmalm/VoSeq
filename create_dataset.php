@@ -111,9 +111,10 @@ echo "<div id=\"content\">";
 						<input type="checkbox" name="taxonadds[genus]"checked>Genus
 						<input type="checkbox" name="taxonadds[species]"checked>Species
 						<input type="checkbox" name="taxonadds[subspecies]">Subspecies
-			
+						<input type="checkbox" name="taxonadds[auctor]">Auctor
 						<input type="checkbox" name="taxonadds[hostorg]">Host org.
 						<input type="checkbox" name="taxonadds[genecode]">Gene code 
+						
 					</td>
 				</tr>
 			</table>

@@ -84,7 +84,7 @@ if( function_exists(mysql_set_charset) ) {
 
 // generate and execute query
 $id = $new_GET['code'];
-$query = "SELECT id, code, orden, family, subfamily, tribe, subtribe, genus, species, subspecies, typeSpecies, country, specificLocality, latitude, longitude, altitude, collector, dateCollection, voucherLocality, voucher, sex, flickr_id, voucherImage, thumbnail, voucherCode, publishedIn, notes, hostorg, extraction, extractionTube, extractor, dateExtraction, timestamp FROM ". $p_ . "vouchers WHERE code = '$id'";
+$query = "SELECT id, code, orden, family, subfamily, tribe, subtribe, genus, species, subspecies, auctor, typeSpecies, country, specificLocality, latitude, longitude, altitude, collector, dateCollection, voucherLocality, voucher, determinedBy, sex, flickr_id, voucherImage, thumbnail, voucherCode, publishedIn, notes, hostorg, extraction, extractionTube, extractor, dateExtraction, timestamp FROM ". $p_ . "vouchers WHERE code = '$id'";
 $result = mysql_query($query) or die("Error in query: $query. " . mysql_error());
 // get result set as object
 $row = mysql_fetch_object($result);
@@ -263,7 +263,10 @@ if ($row)
 		<tr>
 			<td class="label">Subspecies</td><td class="field"><?php echo $row->subspecies; ?>&nbsp;</td>
 			<td>&nbsp;</td>
-			<td class="label">Type species?</td><td class="field"><?php if ($row->typeSpecies == 2) { echo "No"; } elseif ($row->typeSpecies == 1) { echo "Yes"; } else { echo "don't know"; } ?></td>
+			<td class="label">Auctor</td><td class="field"><?php echo $row->auctor; ?>&nbsp;</td>
+		</tr>
+		<tr>
+			<td class="label2" colspan="2">Type species?</td><td>&nbsp;</td><td class="field" colspan="2"><?php if ($row->typeSpecies == 2) { echo "No"; } elseif ($row->typeSpecies == 1) { echo "Yes"; } else { echo "don't know"; } ?></td>
 		</tr>
 	</table>
 	
@@ -312,7 +315,8 @@ if ($row)
 		
 		<tr>
 			<td class="label2">Flickr photo id</td>
-			<td class="label3">Voucher Code</td>
+			<td class="label2">Voucher Code</td>
+			<td class="label2">Determined By</td>
 		</tr>
 		<tr>
 			<td id="photo_id" class="image"><?php
@@ -326,6 +330,7 @@ if ($row)
 									echo "</td>";
 									?>
 			<td class="field2"><?php echo $row->voucherCode; ?>&nbsp;</td>
+			<td class="field2"><?php echo $row->determinedBy; ?>&nbsp;</td>
 		</tr>
 	</table>
 
