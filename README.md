@@ -19,6 +19,10 @@ Requirements
 * [PHP](http://php.net/)
 * [MySQL](http://www.mysql.com/)
 
+How to cite
+-----------
+Peña, C. & Malm, T. 2012. VoSeq: a Voucher and DNA Sequence Web Application. PLoS ONE, 7(6): e39071. [doi:10.1371/journal.pone.0039071](http://dx.doi.org/10.1371/journal.pone.0039071)
+
 Contributing
 ------------
 VoSeq is an open source project, you are welcome to contribute.
